@@ -31,7 +31,7 @@ function loadConfiguration()
 	memory = parseInt(document.getElementById('memorysize').value);
 
 	
-	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) == false) { alert ("Cache, Memory and Offset must be in power of two");}
+	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) == false) { alert ("Caché, Memoria y palabra deben estar en potencia de dos");}
 	else
 	{
 		cacheBit = logtwo(cache);
@@ -54,7 +54,7 @@ function loadConfiguration()
             document.getElementById("information_text").innerHTML=printConfiguration();
 		}
 		else{
-			alert("Configuration is not valid. Please try again. \n Memory Size must be bigger than the total of Cache and Offset Size")
+			alert("La configuración no es válida. Vuelva a intentarlo. \n El tamaño de la memoria debe ser mayor que el tamaño total de la memoria caché y el tamaño de desplazamiento")
 		}
 	}
 }
@@ -84,7 +84,7 @@ function instructionLoadExecuteSteps()
 	if (document.getElementById("instruction_data").disabled==false)
 	{
 		document.getElementById('instruction_data').focus();	
-		alert("Please submit the Load Instruction");
+		alert("Por favor envíe la instrucción de carga");
 	}
 	else{
 	if (step==0){
@@ -95,7 +95,7 @@ function instructionLoadExecuteSteps()
 	}
 	else if (step==1){	
 		window.scroll(0,0);
-		document.getElementById("information_text").innerHTML ="Index requested will be searched in cache as highlighted in yellow";
+		document.getElementById("information_text").innerHTML ="El bloque solicitado se buscará en la memoria caché como se resalta en amarillo";
 		document.getElementById("tag").style.backgroundColor ="";
 		document.getElementById("index").style.backgroundColor="Yellow";
 		document.getElementById("offset").style.backgroundColor="";
@@ -122,7 +122,7 @@ function instructionLoadExecuteSteps()
 
 	}	
 	else if (step==3){
-		document.getElementById("information_text").innerHTML ="Following is the analysis diagram.";
+		document.getElementById("information_text").innerHTML ="A continuación se muestra el diagrama de análisis.";
 		document.getElementById("information_text").style.backgroundColor="";
 		document.getElementById(("tag"+validIndex)).style.backgroundColor ="blue";	
 		window.scroll(0,(drawingSpaceHeight-200));
@@ -156,7 +156,7 @@ function instructionLoadExecuteSteps()
 
 		if (validBitArray[validIndex]==0)
 		{
-			document.getElementById("information_text").innerHTML ="Valid bit is 0, therefore CACHE MISS is obtained. Cache is updated with the new dataset";
+			document.getElementById("information_text").innerHTML ="El bit válido es 0, por lo tanto, se obtiene FALLO DE CACHÉ. La memoria caché se actualiza con el nuevo conjunto de datos.";
             listOfInstructionsTF.push(0); document.getElementById("information_text").style.backgroundColor="#F09999";
 			var newarrowcache = arrowcache.replace ("and.png","and_miss.png");
 			document.getElementById("drawingSpace").innerHTML = newarrowcache;
@@ -164,7 +164,7 @@ function instructionLoadExecuteSteps()
 		
 		}
 		else{
-			document.getElementById("information_text").innerHTML="Valid bit is 1, therefore we should look into the tag. ";
+			document.getElementById("information_text").innerHTML="El bit válido es 1, por lo tanto, debemos buscar en la etiqueta. ";
 
 			//COMPARE IMAGE
 			var compareY = drawingSpaceHeight - 175;
@@ -173,7 +173,7 @@ function instructionLoadExecuteSteps()
 			document.getElementById("drawingSpace").innerHTML = arrowcache;
 			if (validTagArray[validIndex]==document.getElementById("tag").value)
 			{
-				document.getElementById("information_text").innerHTML+="Requested Tag and cached tag is the same. Therefore, CACHE HIT";
+				document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta en caché son las mismas. Por lo tanto, ACIERTO DE CACHÉ";
 				document.getElementById("information_text").style.backgroundColor="#55F055";				
 
 				var newarrowcache = arrowcache.replace ("img/and.png","img/and_hit.png");
@@ -182,7 +182,7 @@ function instructionLoadExecuteSteps()
                 listOfInstructionsTF.push(1);
 			}
 			else{
-				document.getElementById("information_text").innerHTML+="Requested Tag and cached tag is NOT the same. Therefore, CACHE MISS";	             document.getElementById("information_text").style.backgroundColor="#FFcc55";				
+				document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta en caché NO son lo mismo. Por lo tanto, FALLO DE CACHÉ";	             document.getElementById("information_text").style.backgroundColor="#FFcc55";				
 				var newarrowcache = arrowcache.replace ("img/and.png","img/and_miss.png");
 				document.getElementById("drawingSpace").innerHTML = newarrowcache;	
 				listOfInstructionsTF.push(0);
@@ -195,7 +195,7 @@ function instructionLoadExecuteSteps()
 	else if (step==101){
 
 		if (validDirtyBitArray[validIndex]==1){
-				document.getElementById("information_text").innerHTML ="Cache replace the old index. Since dirty bit is 1, Memory will be updated.";
+				document.getElementById("information_text").innerHTML ="La memoria caché reemplaza el bloque anterior. Como el bit sucio es 1, la memoria se actualizará.";
 				var old_binary = validTagArray[validIndex]+""+document.getElementById("index").value;
 				var old_block = parseInt(old_binary,2);		
 				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#2222FF";
@@ -210,16 +210,16 @@ function instructionLoadExecuteSteps()
 		}
 		
 		else{
-			document.getElementById("information_text").innerHTML="Cache replace the old index. Since dirty bit is 0, there is no additional operation required.";	
+			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el índice anterior. Como el bit sucio es 0, no se requiere operación adicional.";	
 		}
 		step=4;
 	}
 	else if (step==5){
 		window.scroll(0,0);
 
-		document.getElementById("information_text").innerHTML = "Cache table is updated accordingly. <br>"+ 
-																"Block "+ block.toUpperCase() +" with offset "+
-																"0 to " + offsetrange + " is transferred to cache";
+		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
+																"Bloque "+ block.toUpperCase() +" con desplazamiento "+
+																"0 a " + offsetrange + "se transfiere al caché";
 		document.getElementById("information_text").style.backgroundColor="#2222FF";
 		document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
 		document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true);
@@ -238,7 +238,7 @@ function instructionLoadExecuteSteps()
 	
 	else{
 		window.scroll(0,0);
-		document.getElementById("information_text").innerHTML ="The cycle has been completed.<br> Please submit another instructions";
+		document.getElementById("information_text").innerHTML ="El ciclo se ha completado. <br> Por favor envíe otras instrucciones";
 		document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="";
 		var findtherow = "tr"+validIndex ;
 		document.getElementById(findtherow).style.backgroundColor ="";	
@@ -276,15 +276,15 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Write Through Policy is adopted. Memory and Cache will be updated at the same time.";
+			document.getElementById("information_text").innerHTML ="Se aprueba la política de escritura directa. La memoria y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Write Back Policy is adopted. Cache will be updated with dirty bit.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de reescritura. La caché se actualizará con bit sucio.";
 		}
 	}
 	else if (step_store==2){
 		
-			document.getElementById("information_text").innerHTML ="Search is performed to determine whether the requested address is available in cache table.";
+			document.getElementById("information_text").innerHTML ="La búsqueda se realiza para determinar si la dirección solicitada está disponible en la tabla de caché.";
 
 
 			window.scroll(0,0);
@@ -322,13 +322,13 @@ function storeInstruction(){
 		document.getElementById("drawingSpace").innerHTML = "";
 		document.getElementById("index").style.backgroundColor="";		
 		if (validTagArray[validIndex]==document.getElementById("tag").value){
-			document.getElementById("information_text").innerHTML ="Requested address is found in cache table.";
+			document.getElementById("information_text").innerHTML ="La dirección solicitada se encuentra en la tabla de caché.";
 			store_cache_found = true;
 			hit++;
 		}
 		else{
 
-			document.getElementById("information_text").innerHTML ="Requested address is NOT found in cache table.";
+			document.getElementById("information_text").innerHTML ="La dirección solicitada NO se encuentra en la tabla de caché.";
 			document.getElementById("information_text").style.backgroundColor="#ffcccc";
 			document.getElementById(("tr"+validIndex)).style.backgroundColor="";
 		}
@@ -337,12 +337,12 @@ function storeInstruction(){
 		document.getElementById("information_text").style.backgroundColor="yellow";
 		if (store_cache_found){	
 			if (writeThroughBack=="Write Through"){
-					document.getElementById("information_text").innerHTML ="Highlighted memory block and cache is updated";
+					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y el caché se actualizan";
 					document.getElementById(("tr"+validIndex)).style.backgroundColor ="#2222FF";	
 					listOfInstructionsTF.push(1);
 				}
 			else {
-				document.getElementById("information_text").innerHTML ="Highlighted cache is updated with dirty bit = 1";
+				document.getElementById("information_text").innerHTML ="El caché resaltado se actualiza con bit sucio = 1";
 				validDirtyBitArray[validIndex]=1;
                 listOfInstructionsTF.push(1);
 				document.getElementById("tableSpace").innerHTML = loadTable();
@@ -355,7 +355,7 @@ function storeInstruction(){
 			listOfInstructionsTF.push(0);
 			var	writePolicy = $("input[name=WriteAllocateAround]:checked").val();
 			if (writePolicy=="Write Allocate"){
-				document.getElementById("information_text").innerHTML ="Cache does not contain requested tag. Data is loaded and content is updated based on Write On Allocate Policy.";
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza en función de la Política de asignación al escribir.";
 				validBitArray[validIndex]=1;
 				validTagArray[validIndex]=document.getElementById("tag").value ;
 				validDataArray[validIndex]= ("Block "+block+" Word 0 - "+ offsetrange).toUpperCase();
@@ -368,7 +368,7 @@ function storeInstruction(){
 			
 			}
 			else{
-				document.getElementById("information_text").innerHTML ="Cache does not contain requested tag. Only memory block is updated based on Write Around Policy.";					
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Solo el bloque de memoria se actualiza según la Política de escritura.";					
 
 			}
 			//Show affected memory block

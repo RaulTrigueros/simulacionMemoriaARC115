@@ -308,10 +308,10 @@ function printListOfPrevIns(arr_ListofInstructions, arr_ListofInstructionsTF){
             var cacheResult;
             if (arr_ListofInstructionsTF[p]==0)
                 {
-                    cacheResult="Miss";
+                    cacheResult="Fallo";
                 }
             else{
-                cacheResult="Hit";
+                cacheResult="Acierto";
             }
 			listofPrevIns +="<li> "+arr_ListofInstructions[p].toUpperCase()+" ["+cacheResult+"] </li>"; 
 		}
@@ -325,10 +325,10 @@ function printListOfPrevInsLS(arr_ListofInstructions, arr_ListofInstructionsTF, 
             var cacheResult;
             if (arr_ListofInstructionsTF[p]==0)
                 {
-                    cacheResult="Miss";
+                    cacheResult="Fallo";
                 }
             else{
-                cacheResult="Hit";
+                cacheResult="ADJUSTMENT";
             }
 			listofPrevIns +="<li> "+ arr_ListofInstructionsLS[p]+ " "+ arr_ListofInstructions[p].toUpperCase()+" ["+cacheResult+"] </li>"; 
 		}
