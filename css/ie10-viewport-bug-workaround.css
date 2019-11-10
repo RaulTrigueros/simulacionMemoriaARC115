@@ -1,0 +1,13 @@
+/ *!
+ * IE10 viewport hack para Surface / desktop Windows 8 bug
+ * Derechos de autor 2014-2015 Twitter, Inc.
+ * Licenciado bajo MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * /
+
+/ *
+ * Consulte los documentos de introducción para obtener más información:
+ * http://getbootstrap.com/getting-started/#support-ie10-width
+ * /
+@ -ms-viewport {ancho: ancho del dispositivo; }
+@ -o-viewport {ancho: ancho del dispositivo; }
+@viewport {ancho: ancho del dispositivo; }
