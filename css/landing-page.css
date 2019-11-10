@@ -21,6 +21,7 @@ h6 {
     font-weight: 700;
 }
 
+
 .topnav {
     font-size: 14px; 
 }
@@ -41,22 +42,26 @@ h6 {
 	height:100%;
 }
 .intro-list{
-    width: 350px;
+    width: 550px;
     margin-bottom: 2px;
     background-color: rgba(255, 255, 255, 0.1);
     text-align: left;
-    color:#FFF;
+    color:#fff;
     border: 0px;
 }
 .intro-message {
     position: relative;
-    padding-top: 15%;
-    padding-bottom: 20%;
+    padding-top: 10%;
+    padding-bottom: 7%;
+    background: url(../img/logoarc115.png) no-repeat left top;
+    background-size: auto;
+    overflow: hidden;
+    
 }
 
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.7);
     font-size: 5em;
 }
 

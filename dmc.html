@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title> Direct Mapped Cache Simulator</title>
+    <title> Simulador Correspondencia Directa Cach&eacute</title>
     <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/dmc.js" ></script>
@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-
+      <link rel="shortcut icon" href="img/logoarc115.ico">  <!--USO DE FAVICON EN TÍTULO-->
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -46,17 +46,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="start.html">ParaCache</a>
+          <a class="navbar-brand" href="start.html">INICIO</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="dmc.html">Direct Mapped Cache</a></li>
-            <li><a href="fa.html">Fully Associative Cache</a></li>
-            <li><a href="sa2.html">2-Way SA </a></li>
-            <li><a href="sa4.html">4-Way SA</a></li>
-            <li><a href="analysis.html">Cache Type Analysis</a></li>
-            <li><a href="vm.html">Virtual Memory</a></li>
-            <li><a href="kb.pdf">Knowledge Base</a></li>
+            <li><a href="dmc.html">Directa</a></li>
+            <li><a href="fa.html">Completamente Asociativa</a></li>
+            <li><a href="sa2.html">2-v&iacuteas Asociativa Conjuntos</a></li>
+            <li><a href="sa4.html">4-v&iacuteas Asociativa Conjuntos</a></li>
+            <li><a href="analysis.html">An&aacutelisis de Cach&eacute</a></li>
           </ul>
         </div>
       </div>
@@ -66,55 +64,55 @@
 
 		<div class="col-sm-6 col-md-2 configurationTab">
 		<div class="settings_text">
-				<!-----Write Through / Write Back ---><h4>Write Policies </h4>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Back" checked> Write Back </input></label>	
-                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Through"> Write Through </input></label>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Write On Allocate </input></label>	
-                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Write Around </input></label>
+				<!-----Write Through / Write Back ---><h4>Escribe políticas </h4>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Back" checked> Respóndeme </input></label>	
+                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Through"> Escriba por medio de </input></label>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escribir en Asignar </input></label>	
+                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir alrededor </input></label>
   				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">  
 		</div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Cache Size <font size=-4>(power of 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
-			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Memory Size <font size=-4>(power of 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Offset Bits <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de cach&eacute <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
+			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de desplazamiento <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
-				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reset</button>
-				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Submit</button>				
+				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar</button>
+				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
 
 			</div>
 		</div>
 		<!------------------  INSTRUCTION ---------------------------------->
 		<div class="col-sm-6 col-md-2 instruction">
-			<h4>  Instruction	</h4>
+			<h4>  Instrucci&oacuten	</h4>
             <label class="col-xs-8 col-sm-8 labels">
 				<select name="InstructionType" id="InstructionType"> 
 					<option value="Load"> Load </option>
 					<option value="Store"> Store </option>
 				</select>
-					<font size=-4>(in hex)</font>#</label>
+					<font size=-4>(en hex)</font>#</label>
                  <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
-            <input  class="col-xs-12 col-sm-12" type="text" placeholder="List of next 10 Instructions" id="list_of_instruction" />
-			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Gen. Random</button>
-			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction()">Submit</button>
+            <input  class="col-xs-12 col-sm-12" type="text" placeholder="Lista de las siguientes 10 instrucciones" id="list_of_instruction" />
+			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Gen. Aleatorio</button>
+			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction()">Enviar</button>
 		</div>
 		<!------------------INFORMATION  -------------------------------->
 		<div class="col-sm-6 col-md-2 information" id="information">
-			<h4> Information </h4>
+			<h4> Informaci&oacuten </h4>
 			<div id="information_text" class="col-sm-12 col-md-12 information_text">
-				Please Configure Cache Settings.
+				Configure los ajustes de cach&eacute.
 			</div>
-			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Next</button>
-			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Fast Forward</button>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Siguiente</button>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Avance r&aacutepido</button>
 		</div>
 		<!-----------------------STATISTICS ---------------------------->
 		<div class="col-sm-6 col-md-2 hitmiss" id="hitmiss">
 
-		<b> Statistics </b> <br>
-			<label class="col-xs-12 col-sm-6 ">Hit Rate  &nbsp; &nbsp;: </label>
+		<b> Estad&iacutesticas </b> <br>
+			<label class="col-xs-12 col-sm-6 ">Tasa de aciertos  &nbsp; &nbsp;: </label>
 			<label class="col-xs-12 col-sm-6" id="hitRateLabel">&nbsp;</label> 
-			<label class="col-xs-6 col-sm-6"> Miss Rate : </label>
+			<label class="col-xs-6 col-sm-6"> Tasa de Fallos : </label>
 			<label  class="col-xs-6 col-sm-6" id="missRateLabel">&nbsp; </label> 
 
-		<b>	List of Previous Instructions :  </b>
+		<b>	Lista de Instrucciones anteriores :  </b>
 				<label  class="col-xs-12 col-sm-12 "id="listOfInstructionsLabel"> </label> 
 		</div>
     </div>
@@ -124,16 +122,16 @@
 	<!------------HEADER ----------------------------------->
 	<div class="col-sm-12 col-md-10 header">
 	<h3><i class="fa fa-sliders" aria-hidden="true"></i>
-            <font face="titleFont"> Direct Mapped Cache </font></h3>
+            <font face="titleFont"> Correspondencia Directa </font></h3>
   	</div>
 	<!-----------------------INSTRUCTION BREAKDOWN ----------------------------------->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
-		<h3><i class="fa fa-sign-in" aria-hidden="true"></i> Instruction Breakdown </h3>
+		<h3><i class="fa fa-sign-in" aria-hidden="true"></i> Desglose de instrucciones </h3>
 		<table  id=caption class=caption>
 			<tr>
-				<td><input type="text" id="tag" name="tag" placeholder="tag" disabled></input></td>
-				<td><input type="text" id="index" name="index" placeholder="index" disabled></input></td>
-				<td><input type="text" id="offset" name="offset" placeholder="offset" disabled></input></td>
+				<td><input type="text" id="tag" name="tag" placeholder="Etiqueta" disabled></input></td>
+				<td><input type="text" id="index" name="index" placeholder="Bloque" disabled></input></td>
+				<td><input type="text" id="offset" name="offset" placeholder="palabra" disabled></input></td>
 			</tr>
 			<tr>
 				<td id="tagbit">  &nbsp;</td>
@@ -146,7 +144,7 @@
 		<div id="drawingSpace" class="drawingSpace"></div>
 	<!-------------------------MEMORY BLOCK ------------------------------->
 		<div id="memorydiv" class="col-sm-12 col-md-7 memorydiv">
-			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Memory Block </h3>
+			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Bloque de memoria </h3>
 				<div id="memoryblocks" class="memoryblocks"></div>
 		</div>
 
@@ -157,11 +155,11 @@
 			<div id="tableSpace" class="tableSpace">
 				<table class=drawtable id=cachetable>
 					<tr>
-						<td> Index </td> 
-						<td> Valid </td>
-						<td> Tag </td>
-						<td> Data (Hex) </td>
-						<td> Dirty Bit </td>
+						<td> Bloque </td> 
+						<td> V&aacutelido </td>
+						<td> Etiqueta </td>
+						<td> Dato (Hex) </td>
+						<td> Bit sucio </td>
 					</tr>
 				</table>
 			</div>

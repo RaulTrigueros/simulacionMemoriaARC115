@@ -64,11 +64,11 @@ function setFirstTableGeneric(tagBit, offsetBit){
 function loadTable(){
 	var whattowrite="<table class=drawtable id=cachetable>"+
 						"<tr>"+
-							"<td  id=marker-1> Index</td>"+
-							"<td> Valid </td>"+
-							"<td> Tag </td>"+
-							"<td> Data (Hex) </td>"+
-							"<td> Dirty Bit </td>"+
+							"<td  id=marker-1> bloque</td>"+
+							"<td> Válido </td>"+
+							"<td> Etiqueta </td>"+
+							"<td> Dato (Hex) </td>"+
+							"<td> Bit sucio </td>"+
 						"</tr>";
 	for (z = 0; z< cache; z++) { 
     whattowrite += "<tr id=tr"+z+">"+
@@ -116,7 +116,7 @@ function instructionBreakdownProcess(type)
 		if (instructionInt<0 || instructionInt>(memory-1) ||isNaN(instructionInt))
 		{
 			document.getElementById('instruction_data').value = 0;
-			alert("Instruction is not valid. Please try again");
+			alert("La instrucción no es válida. Inténtalo de nuevo");
 		}
 		else{
 
@@ -168,7 +168,7 @@ function instructionBreakdownProcess(type)
 	}
 	else
 	{
-		alert ("Please Specify Cache Configuration First!");
+		alert ("Especifique primero la configuración de caché!");
 		return false;
 	}
 	return true;
@@ -177,39 +177,39 @@ function instructionBreakdownProcess(type)
 ///////////////////PRINT CONFIGURATION///////////////////////////////
 function printConfiguration()
 {
-    return(" Offset = " + offsetBit+ " bits"+
-                "<br> Index bits = log<sub>2</sub>("+(cache*offset)+"/"+ offset+") = "+ cacheBit + " bits"+
-                "<br> Instruction Length = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Tag = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
-                "<br> Block = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
-                "<br><br> Please submit Instruction.");
+    return(" palabra = " + offsetBit+ " bits"+
+                "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset)+"/"+ offset+") = "+ cacheBit + " bits"+
+                "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+                "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
+                "<br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
+                "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationSA2()
 {
-    return(" Offset = " + offsetBit+ " bits"+
-                "<br> Index bits = log<sub>2</sub>("+(cache*offset*2)+"/"+ offset+"/2) = "+ cacheBit + " bits"+
-                "<br> Instruction Length = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Tag = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
-                "<br> Block = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
-                "<br><br> Please submit Instruction.");
+    return(" palabra = " + offsetBit+ " bits"+
+                "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset*2)+"/"+ offset+"/2) = "+ cacheBit + " bits"+
+                "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+                "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
+                "<br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
+                "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationSA4()
 {
-    return(" Offset = " + offsetBit+ " bits"+
-                "<br> Index bits = log<sub>2</sub>("+(cache*offset*4)+"/"+ offset+"/4) = "+ cacheBit + " bits"+
-                "<br> Instruction Length = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Tag = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
-                "<br> Block = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
-                "<br><br> Please submit Instruction.");
+    return(" palabra = " + offsetBit+ " bits"+
+                "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset*4)+"/"+ offset+"/4) = "+ cacheBit + " bits"+
+                "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+                "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
+                "<br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
+                "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationVM()
 {
-    return(" Offset = " + offsetBit+ " bits"+
-                "<br> Instruction Length = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Physical Page Rows = "+physicalpage + " / 2^ " + offsetBit +" = "+physicalMemoryRows  + " rows"+
-                "<br> Page Table Rows = "+memory+ " / 2^" + offsetBit +" = "+ zmemory + " rows"+                
-                "<br> TLB Rows= "+ TLB+ " rows"+
-                "<br><br> Please submit Instruction.");
+    return(" palabra = " + offsetBit+ " bits"+
+                "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+                "<br> Filas de página física = "+physicalpage + " / 2^ " + offsetBit +" = "+physicalMemoryRows  + " rows"+
+                "<br> Filas de tabla de página = "+memory+ " / 2^" + offsetBit +" = "+ zmemory + " rows"+                
+                "<br> TLB Filas= "+ TLB+ " rows"+
+                "<br><br> Por favor envíe la instrucción.");
 }
 //////////////////PRINT CONFIGURATION///////////////////////////////
 
@@ -242,7 +242,7 @@ function instructionLoadOrStore(){
 }
 function step0(){
 		window.scroll(0,0);
-		document.getElementById("information_text").innerHTML ="The instruction has been converted from hex to binary and allocated to tag, index, and offset respectively";
+		document.getElementById("information_text").innerHTML ="La instrucción se convirtió de hexadecimal a binario y se asignó a etiqueta, bloque y palabra, respectivamente.";
 		document.getElementById("information_text").style.backgroundColor="#F0CCCC";
 		document.getElementById("tag").style.backgroundColor="#F0CCCC";
 		var indexisExists = document.getElementById("index");
@@ -254,7 +254,7 @@ function step0(){
 }
 
 function evaluateValidBit(SA){
-	document.getElementById("information_text").innerHTML ="Valid bit will be obtained and analysed.";
+	document.getElementById("information_text").innerHTML ="Se obtendrá y analizará el bit válido.";
 	document.getElementById("information_text").style.backgroundColor="green";
 	if (SA==1){
 	document.getElementById(("valid"+validindex)).style.backgroundColor ="green";
@@ -276,7 +276,7 @@ function fastForward()
 {
 	if (document.getElementById("instruction_data").disabled==false)
 	{
-		alert("Please submit the Load Instruction");
+		alert("Por favor envíe la instrucción de carga");
 	}
 	else{
 		if (document.getElementById("InstructionType").value =="Load"){
@@ -337,7 +337,7 @@ function printListOfPrevInsLS(arr_ListofInstructions, arr_ListofInstructionsTF, 
 }
 function endOfInstruction(){
 	
-	document.getElementById("information_text").innerHTML ="The cycle has been completed.<br> Please submit another instructions";
+	document.getElementById("information_text").innerHTML ="El ciclo se ha completado. <br> Por favor envíe otras instrucciones";
 	document.getElementById("information_text").style.backgroundColor="";
 	document.getElementById("tag").style.backgroundColor ="";
 	document.getElementById('instruction_data').disabled = false;
