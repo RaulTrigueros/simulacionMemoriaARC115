@@ -261,7 +261,6 @@ function storeInstruction(){
 	if (document.getElementById("instruction_data").disabled==false)
 	{
 		document.getElementById('instruction_data').focus();	
-		alert("Please submit the Store Instruction");
 	}
 	else{
 	//Check write policy
