@@ -68,7 +68,7 @@ function loadTable(){
 							"<td> Válido </td>"+
 							"<td> Etiqueta </td>"+
 							"<td> Dato (Hex) </td>"+
-							"<td> Bit sucio </td>"+
+							"<td> Bit de modificación </td>"+
 						"</tr>";
 	for (z = 0; z< cache; z++) { 
     whattowrite += "<tr id=tr"+z+">"+
@@ -91,7 +91,7 @@ function setmemorytable(){
 		writeTable +="<tr id= memoryRow"+rows+">";
 		for (var cells=0; cells<offset; cells++)
 		{
-			writeTable+="<td id= memory"+rows+cells+"> B. "+rows.toString(16).toUpperCase()+" W. " + cells.toString(16).toUpperCase() +"</td>";
+			writeTable+="<td id= memory"+rows+cells+"> B. "+rows.toString(16).toUpperCase()+" P. " + cells.toString(16).toUpperCase() +"</td>";
 		}
 		writeTable +="</tr>";
 	}

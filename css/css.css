@@ -169,7 +169,7 @@ table tr td{
 .caption tr:nth-child(2) td{border:1px #000 solid;}
 .drawingSpace {width:100%; position:absolute; z-index: -1;}
 .tableSpace {width:100%;}
-.drawtable {width:100%; text-align:center; margin:0 auto;}
+.drawtable {width:90%; text-align:center; margin:0 auto;}
 .drawtable td{border: 1px solid #333;}
 .drawtable tr td:nth-child(1) {width:10%;}
 .drawtable tr td:nth-child(2) {width:10%;}
