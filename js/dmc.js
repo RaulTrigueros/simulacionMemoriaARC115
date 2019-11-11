@@ -225,7 +225,7 @@ function instructionLoadExecuteSteps()
 		document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true);
 		validBitArray[validIndex]=1;
 		validTagArray[validIndex]=document.getElementById("tag").value ;
-		validDataArray[validIndex]= ("Block "+block+" Word 0 - "+ offsetrange).toUpperCase();
+		validDataArray[validIndex]= ("Bloque "+block+" Palabra 0 - "+ offsetrange).toUpperCase();
 		document.getElementById("drawingSpace").innerHTML = "";
 		document.getElementById("tableSpace").innerHTML = loadTable();
 		resetColouring();
