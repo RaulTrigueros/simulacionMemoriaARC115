@@ -64,17 +64,17 @@
 
     <div class="col-sm-12 col-md-3" id="sidebar">
 		<div class="col-sm-6 col-md-2 configurationTab">
-			<div class="settings_text"><h4>Políticas de Reemplazamiento</h4>
+			<div class="settings_text"><h4>Políticas de Reemplazo</h4>
 				<!--- Replacement Policy -->
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()" value="FIFO" checked> FIFO </input></label>	
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="LRU"> LRU </input></label>
-				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Random </input></label>
+				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Aleatorio </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
-				<!-----Escribir a través de / Escribir atrás ---><h4>Escribir políticas </h4>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Escribir atrás </input></label>	
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escribir a través de </input></label>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escribir en ubicación </input></label>	
-                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir alrededor </input></label>
+				<!-----Escribir A Través De / Escribir Atrás ---><h4>Escribir políticas </h4>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Escribir Atrás </input></label>	
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escribir A Través De </input></label>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escribir En Ubicación </input></label>	
+                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir Alrededor </input></label>
 
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">           
 			</div>
@@ -82,18 +82,18 @@
 			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Offset Bits <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
-				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reestablecer</button>
+				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Restablecer</button>
 				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
 
 			</div>
 		</div>
-		<!------------------ LOAD INSTRUCTION ---------------------------------->
+		<!------------------ CARGA DE INSTRUCCIÓN ---------------------------------->
 		<div class="col-sm-6 col-md-2 instruction">
 			<h4>  Instrucción	</h4>
             <label class="col-xs-8 col-sm-8 labels">
 				<select name="InstructionType" id="InstructionType"> 
-					<option value="Load"> Cargar </option>
-					<option value="Store"> Guardar </option>
+					<option value="Load"> Carga </option>
+					<option value="Store"> Almacenamiento </option>
 				</select>
 					<font size=-4>(en hex)</font>#</label>
                  <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
@@ -160,16 +160,16 @@
 
 			<div id="tableSpace" class="col-sm-12 col-md-12 tableSpace table-responsive table table-striped w-auto">
 				<div id="draw" class="sa4table">
-				<table class=drawtable id=cachetable><tr><td>Index </td><td> Valid </td><td> Tag </td> <td> Data (Hex) </td> <td> Dirty Bit </td></tr></table>
+				<table class=drawtable id=cachetable><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 				<div id="drawTwo" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Tag </td> <td> Data (Hex) </td> <td> Dirty Bit </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 				<div id="drawThree" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Tag </td> <td> Data (Hex) </td> <td> Dirty Bit </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 				<div id="drawFour" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Tag </td> <td> Data (Hex) </td> <td> Dirty Bit </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 			</div>
 		</div>
