@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="js/sa_common.js" ></script>
     <script type="text/javascript" src="js/sa4.js" ></script>
     <script type="text/javascript" src="js/general.js" ></script>
-    <title> 4-Way Set Associative Cache</title>
+    <title> Caché Asociativa por Conjuntos: 4-vías</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,9 +53,9 @@
 			<ul class="nav navbar-nav navbar-right">
 			  <li><a href="dmc.html">Directa</a></li>
 			  <li><a href="fa.html">Completamente Asociativa</a></li>
-			  <li><a href="sa2.html">2-v&iacuteas Asociativa Conjuntos</a></li>
-			  <li><a href="sa4.html">4-v&iacuteas Asociativa Conjuntos</a></li>
-			  <li><a href="analysis.html">An&aacutelisis de Cach&eacute</a></li>
+			  <li><a href="sa2.html">Asociativa por Conjuntos: 2-vías</a></li>
+			  <li><a href="sa4.html">Asociativa Conjuntos: 4-vías</a></li>
+			  <li><a href="analysis.html">Análisis de Caché</a></li>
 			</ul>
 		  </div>
 		</div>
@@ -64,75 +64,75 @@
 
     <div class="col-sm-12 col-md-3" id="sidebar">
 		<div class="col-sm-6 col-md-2 configurationTab">
-			<div class="settings_text"><h4>Replacement Policies</h4>
+			<div class="settings_text"><h4>Políticas de Reemplazamiento</h4>
 				<!--- Replacement Policy -->
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()" value="FIFO" checked> FIFO </input></label>	
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="LRU"> LRU </input></label>
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Random </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
-				<!-----Write Through / Write Back ---><h4>Write Policies </h4>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Write Back </input></label>	
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Write Through </input></label>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Write On Allocate </input></label>	
-                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Write Around </input></label>
+				<!-----Escribir a través de / Escribir atrás ---><h4>Escribir políticas </h4>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Escribir atrás </input></label>	
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escribir a través de </input></label>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escribir en ubicación </input></label>	
+                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir alrededor </input></label>
 
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">           
 			</div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Cache Size <font size=-4>(power of 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
-			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Memory Size <font size=-4>(power of 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de caché <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
+			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Offset Bits <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
-				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reset</button>
-				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Submit</button>				
+				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reestablecer</button>
+				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
 
 			</div>
 		</div>
 		<!------------------ LOAD INSTRUCTION ---------------------------------->
 		<div class="col-sm-6 col-md-2 instruction">
-			<h4>  Instruction	</h4>
+			<h4>  Instrucción	</h4>
             <label class="col-xs-8 col-sm-8 labels">
 				<select name="InstructionType" id="InstructionType"> 
-					<option value="Load"> Load </option>
-					<option value="Store"> Store </option>
+					<option value="Load"> Cargar </option>
+					<option value="Store"> Guardar </option>
 				</select>
-					<font size=-4>(in hex)</font>#</label>
+					<font size=-4>(en hex)</font>#</label>
                  <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
               <input  class="col-xs-12 col-sm-12" type="text" placeholder="List of next 10 Instructions" id="list_of_instruction" />
-			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Gen. Random</button>
-			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction()">Submit</button>
+			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Generar Aleatorio</button>
+			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction()">Enviar</button>
 		</div>
-		<!------------------INFORMATION  -------------------------------->
+		<!------------------INFORMACIÓN  -------------------------------->
 		<div class="col-sm-6 col-md-2 information" id="information">
-			<h4> Information </h4>
+			<h4> Información </h4>
 			<div id="information_text" class="col-sm-12 col-md-12 information_text">
-				Please Configure Cache Settings.
+				Por favor configure las especificaciones de la caché.
 			</div>
-			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Next</button>
-			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Fast Forward</button>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Siguiente</button>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Reenvío rápido</button>
 		</div>
-		<!-----------------------STATISTICS ---------------------------->
+		<!----------------------- ESTADÍSTICAS ---------------------------->
 		<div class="col-sm-6 col-md-2 hitmiss" id="hitmiss">
 
-		<b> Statistics </b> <br>
+		<b> Estadísticas </b> <br>
 			<label class="col-xs-12 col-sm-6 ">Aciertos  &nbsp; &nbsp;: </label>
 			<label class="col-xs-12 col-sm-6" id="hitRateLabel">&nbsp;</label> 
 			<label class="col-xs-6 col-sm-6"> Fallos : </label>
 			<label  class="col-xs-6 col-sm-6" id="missRateLabel">&nbsp; </label> 
-		<b>	List of Previous Instructions :  </b>
+		<b>	Lista de instrucciones previas:  </b>
 				<label  class="col-xs-12 col-sm-12 "id="listOfInstructionsLabel"> </label> 
 		</div>
     </div>
-	<!------------------------------RIGHT SIDE-------------------------------------------->
+	<!------------------------------ LADO DERECHO -------------------------------------------->
 	
 	<div class="col-sm-12 col-md-9">
-	<!------------HEADER ----------------------------------->
+	<!------------ HEADER ----------------------------------->
 	<div class="col-sm-12 col-md-10 header">
 	<h3><i class="fa fa-sliders" aria-hidden="true"></i>
-						<font face="titleFont"> 4-Way Set Associative Cache </font></h3>	
+						<font face="titleFont"> Caché Asociativa por Conjuntos: 4-vías </font></h3>	
 	</div>
-	<!-----------------------INSTRUCTION BREAKDOWN ----------------------------------->
+	<!----------------------- ANÁLISIS DE INSTRUCCIÓN ----------------------------------->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
-		<h3><i class="fa fa-sign-in" aria-hidden="true"></i> Instruction Breakdown </h3>
+		<h3><i class="fa fa-sign-in" aria-hidden="true"></i> Análisis de instrucción </h3>
 		<table  id=caption class=caption>
 			<tr>
 				<td><input type="text" id="tag" name="tag" placeholder="tag" disabled></input></td>
@@ -148,15 +148,15 @@
 	</div>
 	<!--------------------DRAWING LAYER -------------------------------->
 		<div id="drawingSpace" class="drawingSpace"></div>
-	<!-------------------------MEMORY BLOCK ------------------------------->
+	<!------------------------ BLOQUE DE MEMORIA ------------------------------->
 		<div id="memorydiv" class="col-sm-12 col-md-7 memorydiv">
-			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Memory Block Principal </h3>
+			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Bloque de Memoria Principal </h3>
 				<div id="memoryblocks" class="memoryblocks"></div>
 		</div>
 
-	<!----------------- CACHE TABLE -------------------------------------->
+	<!----------------- TABLA DE CACHÉ -------------------------------------->
 		<div id="container" class="col-sm-12 col-md-12 inner_container">
-			 <h3  class="col-sm-12 col-md-12"> <i class="fa fa-table" aria-hidden="true"></i> Cache Table </u></h3>
+			 <h3  class="col-sm-12 col-md-12"> <i class="fa fa-table" aria-hidden="true"></i> Tabla de Caché </u></h3>
 
 			<div id="tableSpace" class="col-sm-12 col-md-12 tableSpace table-responsive table table-striped w-auto">
 				<div id="draw" class="sa4table">
