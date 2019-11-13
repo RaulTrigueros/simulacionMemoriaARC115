@@ -5,7 +5,7 @@
 
 body {
 	font-size:14px;
-	background-color: #99FF66 ;
+	background-color: #EDE7C2 ;
 	background-size : cover;
 	font-family:sans-serif;
 	
@@ -13,7 +13,7 @@ body {
 h3 {margin: 5px;}
 h4 {margin:0;font-weight:bold;}
 button{
-	background-color:#76D7C4 ;
+	background-color:#FEB596 ;
 	border: 0px;
 	border-radius:3px;
 	padding:5px;
@@ -140,8 +140,8 @@ table tr td{
 }
 
 
-.header h3 {font-size:90px; text-align:center;font-weight:bold;background: #76D7C4 ;margin-bottom: 4%;}
-.logo img{width: 180px; height: 160px;float: center;display: inline-block;}
+.header h3 {font-size:90px; text-align:center;font-weight:bold;background: #A2FCAF ;margin-bottom: 4%;}
+.header img{width: 90px; height: 80px;float: center;display: inline-block;}
 @media screen and (min-width: 767px) {
   .header h3 {font-size:32px; }
    .chart {margin-top:100px; }
@@ -155,6 +155,12 @@ table tr td{
    .chart {margin-top:0px; }
 }
 
+#sidebar {
+	background-color: #92C1E8;
+	margin-top:0px;
+	float:right;
+
+}
 
 
 .addressevaluated{ margin:0 auto; float:left;	vertical-align: bottom;}
