@@ -5,7 +5,7 @@
 
 body {
 	font-size:14px;
-	background-color: silver ;
+	background-color:#ABEBC6 ;
 	background-size : cover;
 	font-family:sans-serif;
 	
@@ -13,7 +13,7 @@ body {
 h3 {margin: 5px;}
 h4 {margin:0;font-weight:bold;}
 button{
-	background-color:#FEB596 ;
+	background-color:#B2BABB ;
 	border: 0px;
 	border-radius:3px;
 	padding:5px;
@@ -140,8 +140,8 @@ table tr td{
 }
 
 
-.header h3 {font-size:90px; text-align:center;font-weight:bold;background: #A2FCAF ;margin-bottom: 4%;}
-.header img{width: 90px; height: 80px;float: center;display: inline-block;}
+.header h3 {font-size:90px; text-align:center;font-weight:bold;margin-bottom: 4%;text-transform: uppercase;}
+.header img{width: 120px; height: 100px;float: center;display: inline;margin-left: 7%;}
 @media screen and (min-width: 767px) {
   .header h3 {font-size:32px; }
    .chart {margin-top:100px; }
@@ -156,7 +156,7 @@ table tr td{
 }
 
 #sidebar {
-	background-color: #92C1E8;
+	background-color: #58D68D ;
 	padding-top: 20px;
 	float:right;
 
