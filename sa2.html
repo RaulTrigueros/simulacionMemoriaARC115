@@ -74,16 +74,20 @@
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Random </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
 				<!-----Write Through / Write Back ---><h4>Pol&iacuteticas de escritura </h4>
+
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Post-Escritura </input></label>	
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
                 <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around">Escritura sin Ubicaci&oacuten </input></label>
 
+
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">           
 			</div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de cache <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
 			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
+
 			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
+
 			<div class ="submit">
 				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar</button>
 				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
@@ -132,7 +136,7 @@
 	<!------------HEADER ----------------------------------->
 	<div class="col-sm-12 col-md-10 header">
 	<h3><i class="fa fa-sliders" aria-hidden="true"></i>
-						<font face="titleFont"> Caché asociativo de conjunto de 2 vías </font></h3>
+						<font face="titleFont"> Caché Asociativa de conjuntos: 2-v&iacuteas </font></h3>
 
 	
 	</div>
@@ -156,7 +160,7 @@
 		<div id="drawingSpace" class="drawingSpace"></div>
 	<!-------------------------MEMORY BLOCK ------------------------------->
 		<div id="memorydiv" class="col-sm-12 col-md-7 memorydiv">
-			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Bloque de memoria </h3>
+			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Bloque de memoria Principal</h3>
 				<div id="memoryblocks" class="memoryblocks"></div>
 		</div>
 	<!----------------- CACHE TABLE -------------------------------------->
