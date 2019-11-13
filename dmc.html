@@ -69,7 +69,7 @@
                 <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
                 <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir alrededor </input></label>
-  				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">  
+				<br><hr style="margin-top:0px; margin-bottom:10px; border:1px solid #999;">  
 		</div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de cach&eacute <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
 			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
@@ -104,7 +104,7 @@
 			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Avance r&aacutepido</button>
 		</div>
 		<!-----------------------STATISTICS ---------------------------->
-		<div class="col-sm-6 col-md-2 hitmiss" id="hitmiss">
+		<div class="col-sm-6 col-md-32hitmiss" id="hitmiss">
 
 		<b> Estad&iacutesticas </b> <br>
 			<label class="col-xs-12 col-sm-6 ">Aciertos:  &nbsp; &nbsp; </label>
@@ -122,10 +122,9 @@
 	<!------------HEADER ----------------------------------->
 
 	<div class="col-sm-12 col-md-10 header">
-		  <div class="logo"> <img src="img/logoarc115.png" alt="logo de simulador ARC115" > </div>
 		 <h3><i class="fa fa-sliders" aria-hidden="true"></i>
-         <font face="titleFont"> Correspondencia Directa </font></h3>
 
+         <font face="titleFont"> Correspondencia Directa </font><img src="img/logoarc115.png" alt="logo de simulador ARC115" ></h3>
 
   	</div> 
 	<!-----------------------INSTRUCTION BREAKDOWN ----------------------------------->
