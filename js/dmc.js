@@ -210,7 +210,7 @@ function instructionLoadExecuteSteps()
 		}
 		
 		else{
-			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el índice anterior. Como el bit sucio es 0, no se requiere operación adicional.";	
+			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el bloque anterior. Como el bit sucio es 0, no se requiere operación adicional.";	
 		}
 		step=4;
 	}
@@ -218,7 +218,7 @@ function instructionLoadExecuteSteps()
 		window.scroll(0,0);
 
 		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
-																"Bloque "+ block.toUpperCase() +" con desplazamiento "+
+																"Bloque "+ block.toUpperCase() +" con Tamaño "+
 																"0 a " + offsetrange + "se transfiere al caché";
 		document.getElementById("information_text").style.backgroundColor="#2222FF";
 		document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
@@ -358,7 +358,7 @@ function storeInstruction(){
 				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza en función de la Política de asignación al escribir.";
 				validBitArray[validIndex]=1;
 				validTagArray[validIndex]=document.getElementById("tag").value ;
-				validDataArray[validIndex]= ("Block "+block+" Word 0 - "+ offsetrange).toUpperCase();
+				validDataArray[validIndex]= ("Bloque "+block+" Palabra 0 - "+ offsetrange).toUpperCase();
 				document.getElementById("drawingSpace").innerHTML = "";
 				document.getElementById("tableSpace").innerHTML = loadTable();
 				resetColouring();
