@@ -140,7 +140,7 @@ function instructionLoadExecuteSteps()
 		if (cacheReplacementPolicy == "Random")	{LRUIndex = LRU[validindex][Math.floor(Math.random() * LRU[validindex].length)]; }	
 		if (validBitArray[validindex].indexOf(1)==-1)
 		{
-			document.getElementById("information_text").innerHTML ="Todo bit válido es 0. Por tanto, toda compuerta AND es ERROR.";
+			document.getElementById("information_text").innerHTML ="Todo bit válido es 0. Por tanto, toda compuerta AND es Fallo.";
 			document.getElementById("information_text").style.backgroundColor="#F09999";
 					
 			var newarrowcache = arrowcache.replace (/and.png/g,"and_miss.png");
@@ -151,7 +151,7 @@ function instructionLoadExecuteSteps()
 				}
 					validBitArray[validindex][LRUIndex]=1;
 				validTagArray[validindex][LRUIndex]=document.getElementById("tag").value ;
-				var stringDataArray = "B. "+block+" W. 0 - "+ offsetrange ;
+				var stringDataArray = "B. "+block+" P. 0 - "+ offsetrange ;
 				validDataArray[validindex][LRUIndex]= stringDataArray.toUpperCase();
 
 		}
@@ -219,11 +219,11 @@ function instructionLoadExecuteSteps()
 								newarrowcache = newarrowcache.replace("and.png","and_miss.png");
 								var newarrowcache= newarrowcache.replace ("and.png","and_hit.png");
 							}
-							document.getElementById("information_text").innerHTML+="El tag solicitado y la etiqueta de cacheo (cached tag?) para la tabla"+ (indexHighlight+1) +" es el mismo.";
+							document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta de cache (cached tag?) para la tabla" + (indexHighlight+1) +" es la mismo.";
 
 			}
 			else{
-				document.getElementById("information_text").innerHTML+="la etiqueta solicitado y la etiqueta de cacheo no es el mismo. Por tanto, ERROR DE CACHÉ";		
+				document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta de cache no es la misma. Por tanto, FALLO DE CACHÉ";		
 				document.getElementById("information_text").style.backgroundColor="#FFcc55";				
 				var newarrowcache = arrowcache.replace (/and.png/g,"and_miss.png");
 				if (cacheReplacementPolicy != "Random")
@@ -234,7 +234,7 @@ function instructionLoadExecuteSteps()
 				if (validBitArray[validindex][LRUIndex]==1){replace_old_cache = true;}				
 				validBitArray[validindex][LRUIndex]=1;
 				validTagArray[validindex][LRUIndex]=document.getElementById("tag").value ;
-				var stringDataArray = "B. "+block+" W. 0 - "+ offsetrange ;
+				var stringDataArray = "B. "+block+" P. 0 - "+ offsetrange ;
 				validDataArray[validindex][LRUIndex]= stringDataArray.toUpperCase();
 			}
 					
@@ -251,12 +251,12 @@ function instructionLoadExecuteSteps()
 			
 				if (!hitBoolean){
 					var finalarrowcache = newarrowcache.replace("or.png","or_miss.png");
-					document.getElementById("information_text").innerHTML +="Toda compuerta AND es ERROR, por tanto ERROR DE CACHÉ.";
+					document.getElementById("information_text").innerHTML +="Toda compuerta AND es ERROR, por tanto FALLO DE CACHÉ.";
 					if (replace_old_cache == true){step = 100;}
 				}
 				else{
 					var finalarrowcache = newarrowcache.replace("or.png","or_hit.png");
-					document.getElementById("information_text").innerHTML +="Una de las compuertas AND es ERROR, por tanto ERROR DE CACHÉ.";
+					document.getElementById("information_text").innerHTML +="Una de las compuertas AND es ERROR, por tanto FALLO DE CACHÉ.";
 
 				}
 		
@@ -266,7 +266,7 @@ function instructionLoadExecuteSteps()
 	else if (step==101){
 
 		if (validDirtyBitArray[validindex][LRUIndex]==1){
-				document.getElementById("information_text").innerHTML ="La caché reemplaza el antiguo index. Dado que el bit sucio es 1, la memoria será actualizada.";
+				document.getElementById("information_text").innerHTML ="La caché reemplaza el antiguo bloque. Dado que el bit sucio es 1, la memoria será actualizada.";
 				if (document.getElementById("indexbit").innerHTML!=0){
 					var old_binary = validTagArray[validindex][LRUIndex]+""+document.getElementById("index").value;
 				}
@@ -287,7 +287,7 @@ function instructionLoadExecuteSteps()
 		}
 		
 		else{
-			document.getElementById("information_text").innerHTML="La caché reemplaza el antiguo index. Dado que el bit sucio es 0, no hay una operación adicional requerida.";	
+			document.getElementById("information_text").innerHTML="La caché reemplaza el antiguo bloque. Dado que el bit sucio es 0, no hay una operación adicional requerida.";	
 		}
 		document.getElementById("drawingSpace").innerHTML = "";
 		if (!hitBoolean)
@@ -311,12 +311,12 @@ function instructionLoadExecuteSteps()
 	else if (step==6){
 
 		if (hitBoolean){
-			document.getElementById("information_text").innerHTML = "Datos traídos desde la caché.";	
+			document.getElementById("information_text").innerHTML = "Datos obtenidos de la caché.";	
 		}
 		else{
-		document.getElementById("information_text").innerHTML = "La tabla de caché es actualizada así (o en conformidad). <br>"+ 
-																"Block "+ block.toUpperCase() +" with offset "+
-																"0 to " + offsetrange + "  is copied into the cache";
+		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
+																"Bloque "+ block.toUpperCase() +" con Tamaño de bloque "+
+																"0 a " + offsetrange + "  se copia en la caché";
 									
 		}
 
@@ -373,7 +373,7 @@ function storeInstruction(){
 	if (document.getElementById("instruction_data").disabled==false)
 	{
 		document.getElementById('instruction_data').focus();	
-		alert("Please submit the Store Instruction");
+		alert("Por favor envíe la intrucción de almacenamiento");
 	}
 	else{
 	getDrawingProperties();
@@ -390,10 +390,10 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se adopta la Política 'Escribir a través de'. La Memoria y la Caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se adopta la Política 'Escritura inmediata'. La Memoria y la Caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la Política 'Escribir atrás'. La caché se actualizará con el bit sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la Política 'Post-escritura'. La caché se actualizará con el bit sucio.";
 		}
 	}
 	else if (step_store==2){
@@ -433,13 +433,13 @@ function storeInstruction(){
 		if (store_cache_found){
 			if (writeThroughBack=="Write Through"){
 
-					document.getElementById("information_text").innerHTML ="Se actualizan el bloque de memoria más notorio (más notable) y la caché.";
+					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y el caché se actualizan.";
 
 					document.getElementById(("tr"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor ="#2222FF";	
 					listOfInstructionsTF.push(1);
 				}
 			else{ // Write Back with Cache Hit
-				document.getElementById("information_text").innerHTML ="Se actualiza la caché más notoria con bit sucio = 1";
+				document.getElementById("information_text").innerHTML ="La caché resaltada se actualiza con bit sucio = 1";
 				validDirtyBitArray[validindex][whichTableContainsValidTag]=1;
                 listOfInstructionsTF.push(1);
 				loadTableSetAssociative();

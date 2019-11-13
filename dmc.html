@@ -64,16 +64,16 @@
 
 		<div class="col-sm-6 col-md-2 configurationTab">
 		<div class="settings_text">
-				<!-----Write Through / Write Back ---><h4>Selecciona políticas </h4>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Back" checked> Post-escritura </input></label>	
-                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Through"> Escritura directa </input></label>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Asignaci&oacuten de Escritura </input></label>	
+				<!-----Write Through / Write Back ---><h4>Elegir políticas de Actualizaci&oacuten </h4>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Back" checked> Post-Escritura </input></label>	
+                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Through"> Escritura Inmediata </input></label>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
                 <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir alrededor </input></label>
   				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">  
 		</div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de cach&eacute <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
 			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de desplazamiento <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
 				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar</button>
 				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
@@ -85,8 +85,8 @@
 			<h4>  Instrucci&oacuten	</h4>
             <label class="col-xs-8 col-sm-8 labels">
 				<select name="InstructionType" id="InstructionType"> 
-					<option value="Load"> Load </option>
-					<option value="Store"> Store </option>
+					<option value="Load"> Cargar </option>
+					<option value="Store"> Almacenar </option>
 				</select>
 					<font size=-4>(en hex)</font>#</label>
                  <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
@@ -118,12 +118,16 @@
     </div>
 	<!------------------------------RIGHT SIDE-------------------------------------------->
 	
-	<div class="col-sm-12 col-md-9">
+	<div class="col-sm-12 col-md-9" >
 	<!------------HEADER ----------------------------------->
+
 	<div class="col-sm-12 col-md-10 header">
-	<h3><i class="fa fa-sliders" aria-hidden="true"></i>
-            <font face="titleFont"> Correspondencia Directa </font></h3>
-  	</div>
+		  <div class="logo"> <img src="img/logoarc115.png" alt="logo de simulador ARC115" > </div>
+		 <h3><i class="fa fa-sliders" aria-hidden="true"></i>
+         <font face="titleFont"> Correspondencia Directa </font></h3>
+        
+
+  	</div> 
 	<!-----------------------INSTRUCTION BREAKDOWN ----------------------------------->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
 		<h3><i class="fa fa-sign-in" aria-hidden="true"></i> Desglose de instrucciones </h3>
@@ -150,7 +154,7 @@
 
 	<!----------------- CACHE TABLE -------------------------------------->
 		<div id="container" class="col-sm-12 col-md-12 inner_container">
-			 <h3  class="col-sm-12 col-md-12"> <i class="fa fa-table" aria-hidden="true"></i> Cache Table </u></h3>
+			 <h3  class="col-sm-12 col-md-12"> <i class="fa fa-table" aria-hidden="true"></i> Tabla Cach&eacute	 </u></h3>
 
 			<div id="tableSpace" class="tableSpace">
 				<table class=drawtable id=cachetable>

@@ -139,7 +139,7 @@ function instructionLoadExecuteSteps()
 		if (cacheReplacementPolicy == "Random")	{LRUIndex = LRU[validindex][Math.floor(Math.random() * LRU[validindex].length)]; }	
 		if (validBitArray[validindex].indexOf(1)==-1)
 		{
-			document.getElementById("information_text").innerHTML ="Ambos bits válidos son 0, por lo tanto, la compuerta AND es MISS";
+			document.getElementById("information_text").innerHTML ="Ambos bits válidos son 0, por lo tanto, la compuerta AND es Fallo";
 			document.getElementById("information_text").style.backgroundColor="#F09999";
 				
 			var newarrowcache = arrowcache.replace (/and.png/g,"and_miss.png");
@@ -256,11 +256,11 @@ function instructionLoadExecuteSteps()
 			
 				if (!hitBoolean){
 					var finalarrowcache = newarrowcache.replace("img/or.png","img/or_miss.png");
-					document.getElementById("information_text").innerHTML +="Ambas puertas AND son MISS, por lo tanto, CACHE MISS";
+					document.getElementById("information_text").innerHTML +="Ambas compuertas AND son MISS, por lo tanto, FALLO DE CACHE";
 				}
 				else{
 					var finalarrowcache = newarrowcache.replace("img/or.png","img/or_hit.png");
-					document.getElementById("information_text").innerHTML +="Una de las puertas AND es HIT, por lo tanto, CACHE HIT";					
+					document.getElementById("information_text").innerHTML +="Una de las compuertas AND es HIT, por lo tanto, ACIERTO DE CACHE";					
 
 				}
 		
@@ -286,7 +286,7 @@ function instructionLoadExecuteSteps()
 		}
 		
 		else{
-			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el índice anterior. Como el bit sucio es 0, no se requiere ninguna operación adicional.";	
+			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el bloque anterior. Como el bit sucio es 0, no se requiere ninguna operación adicional.";	
 		}
 		step=5;
 	}
@@ -296,7 +296,7 @@ function instructionLoadExecuteSteps()
 		}
 		else{
 		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
-																"Bloque "+ block.toUpperCase() +" con desplazamiento "+
+																"Bloque "+ block.toUpperCase() +" con Tamaño de bloque "+
 																"0" + offsetrange + "  se copia en el caché";
 									
 		}
@@ -373,10 +373,10 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se aprueba la política de escritura directa. La memoria y la caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se aprueba la política de 'escritura inmediata'. La memoria y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la política de reescritura. La caché se actualizará con bit sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de Post-escritura. La caché se actualizará con bit sucio.";
 		}
 	}
 	else if (step_store==2){

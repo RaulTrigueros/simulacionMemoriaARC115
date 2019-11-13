@@ -71,16 +71,16 @@
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Aleatorio </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
 				<!-----Escribir A Través De / Escribir Atrás ---><h4>Escribir políticas </h4>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Escribir Atrás </input></label>	
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escribir A Través De </input></label>
-				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escribir En Ubicación </input></label>	
-                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir Alrededor </input></label>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Post-Escritura </input></label>	
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escritura Inmediata </input></label>
+				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
+                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escritura sin Ubicaci&oacuten </input></label>
 
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">           
 			</div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de caché <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
 			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Offset Bits <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
 				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Restablecer</button>
 				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
@@ -92,8 +92,8 @@
 			<h4>  Instrucción	</h4>
             <label class="col-xs-8 col-sm-8 labels">
 				<select name="InstructionType" id="InstructionType"> 
-					<option value="Load"> Carga </option>
-					<option value="Store"> Almacenamiento </option>
+					<option value="Load"> Cargar </option>
+					<option value="Store"> Almacenar </option>
 				</select>
 					<font size=-4>(en hex)</font>#</label>
                  <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
@@ -135,11 +135,11 @@
 		<h3><i class="fa fa-sign-in" aria-hidden="true"></i> Análisis de instrucción </h3>
 		<table  id=caption class=caption>
 			<tr>
-				<td><input type="text" id="tag" name="tag" placeholder="tag" disabled></input></td>
-				<td><input type="text" id="index" name="index" placeholder="index" disabled></input></td>
-				<td><input type="text" id="offset" name="offset" placeholder="offset" disabled></input></td>
+				<td><input type="text" id="tag" name="tag" placeholder="Etiqueta" disabled></input></td>
+				<td><input type="text" id="index" name="index" placeholder="Bloque" disabled></input></td>
+				<td><input type="text" id="offset" name="offset" placeholder="Palabra" disabled></input></td>
 			</tr>
-			<tr>
+			<tr> 	
 				<td id="tagbit">  &nbsp;</td>
 				<td id="indexbit">&nbsp;</td>
 				<td id="offsetbit">&nbsp;</td>
@@ -160,16 +160,16 @@
 
 			<div id="tableSpace" class="col-sm-12 col-md-12 tableSpace table-responsive table table-striped w-auto">
 				<div id="draw" class="sa4table">
-				<table class=drawtable id=cachetable><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
+				<table class=drawtable id=cachetable><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 				<div id="drawTwo" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 				<div id="drawThree" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 				<div id="drawFour" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Index </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Bit Sucio </td></tr></table>
 				</div>
 			</div>
 		</div>

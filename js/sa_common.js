@@ -55,11 +55,11 @@ function loadTableSetAssociative(){
 	{
 		rendertableText[table]="<table class=drawtable id=cachetable"+table+">"+
 								"<tr>"+
-									"<td> Index </td>"+
+									"<td> Bloque </td>"+
 									"<td> Valid </td>"+
-									"<td> Tag </td> "+
-									"<td> Data (Hex) </td>"+
-									"<td> Dirty Bit </td>"+
+									"<td> Etiqueta </td> "+
+									"<td> Dato (Hex) </td>"+
+									"<td> Bit sucio </td>"+
 								"</tr>";
 		for (j=0; j<cache;j++)
 		{
@@ -125,7 +125,7 @@ function setConst(){
 
 function step1(){
     window.scroll(0,0);
-    document.getElementById("information_text").innerHTML ="Index requested will be searched in cache as highlighted in yellow";
+    document.getElementById("information_text").innerHTML ="El índice solicitado se buscará en la memoria caché como se resalta en amarillo";
     document.getElementById("tag").style.backgroundColor ="";
     document.getElementById("index").style.backgroundColor="Yellow";
     document.getElementById("offset").style.backgroundColor="";

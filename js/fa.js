@@ -51,10 +51,10 @@ function loadConfiguration()
 			setmemorytable();
 			setfirsttable();
 			document.getElementById('submitConfig').disabled = true;
-            document.getElementById("information_text").innerHTML=" Offset = " + offsetBit+ " bits"+
-                "<br> Instruction Length = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Block = "+memoryBit +" bits - " +offsetBit+" bits = "+ (memoryBit-offsetBit)+ " bits"+
-                "<br><br> Please submit Instruction.";
+            document.getElementById("information_text").innerHTML=" Palabra = " + offsetBit+ " bits"+
+                "<br> Longitud de instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+                "<br> Bloque = "+memoryBit +" bits - " +offsetBit+" bits = "+ (memoryBit-offsetBit)+ " bits"+
+                "<br><br> Por favor envíe la instrucción.";
 		}
 		else
 		{
@@ -330,7 +330,7 @@ function storeInstruction(){
 				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza en función de la Política de asignación al escribir.";
 				validBitArray[LRUIndex]=1;
 				validTagArray[LRUIndex]=document.getElementById("tag").value ;
-				var stringDataArray = "Block "+block+" Word 0 - "+ offsetrange ;
+				var stringDataArray = "Bloque "+block+" Palabra 0 - "+ offsetrange ;
 				validDataArray[LRUIndex]= stringDataArray.toUpperCase();
 
 				document.getElementById("tableSpace").innerHTML = loadTable();

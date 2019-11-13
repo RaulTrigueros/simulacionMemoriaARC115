@@ -218,8 +218,8 @@ function instructionLoadExecuteSteps()
 		window.scroll(0,0);
 
 		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
-																"Bloque "+ block.toUpperCase() +" con Tamaño "+
-																"0 a " + offsetrange + "se transfiere al caché";
+																"Bloque "+ block.toUpperCase() +" con Tamaño de bloque "+
+																"0 a " + offsetrange + " se transfiere al caché";
 		document.getElementById("information_text").style.backgroundColor="#2222FF";
 		document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
 		document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true);
@@ -276,10 +276,10 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se aprueba la política de escritura directa. La memoria y la caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se aprueba la política de 'escritura inmediata'. La memoria y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la política de reescritura. La caché se actualizará con bit sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de 'Post-escritura'. La caché se actualizará con bit sucio.";
 		}
 	}
 	else if (step_store==2){
