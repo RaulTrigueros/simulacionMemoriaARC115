@@ -82,8 +82,8 @@
 			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
-				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar</button>
-				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
+				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar <i class="fa fa-undo"aria-hidden="true"></i></button>
+				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar <i class="fa fa-external-link-square" aria-hidden="true"></i></button>				
 
 			</div>
 		</div>
@@ -98,8 +98,8 @@
 					<font size=-4>(en hex)</font>#</label>
                  <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
               <input  class="col-xs-12 col-sm-12" type="text" placeholder="Lista de las siguientes 10 instrucciones" id="list_of_instruction" />
-			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Generar Aleatorio</button>
-			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction()">Enviar</button>
+			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Aleatorio <i class="fa fa-random" aria-hidden="true"></i></button>
+			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction()">Enviar <i class="fa fa-external-link-square" aria-hidden="true"></i></button>
 		</div>
 		<!------------------INFORMACIÓN  -------------------------------->
 		<div class="col-sm-6 col-md-2 information" id="information">
@@ -107,8 +107,8 @@
 			<div id="information_text" class="col-sm-12 col-md-12 information_text">
 				Por favor configure las especificaciones de la caché.
 			</div>
-			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Siguiente</button>
-			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Reenvío rápido</button>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Siguiente <i class="fa fa-play" aria-hidden="true"></i></button>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Avance rápido <i class="fa fa-play" aria-hidden="true"></i></button>
 		</div>
 		<!----------------------- ESTADÍSTICAS ---------------------------->
 		<div class="col-sm-6 col-md-2 hitmiss" id="hitmiss">
@@ -127,16 +127,16 @@
 	<div class="col-sm-12 col-md-9">
 	<!------------ HEADER ----------------------------------->
 	<div class="col-sm-12 col-md-10 header">
-	<h3><img src="img/logoarc115.png" alt="logo de simulador ARC115" ><br><i class="fa fa-sliders" aria-hidden="true"></i>
+	<h3><img src="img/logoarc115.png" alt="logo de simulador ARC115" ><br>
 						<font face="titleFont">Asociativa por Conjuntos: 4-vías </font></h3>	
 	</div>
 	<!----------------------- ANÁLISIS DE INSTRUCCIÓN ----------------------------------->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
-		<h3><i class="fa fa-sign-in" aria-hidden="true"></i> Análisis de instrucción </h3>
+		<h3><i class="fa fa-sort" aria-hidden="true"></i> Desglose de instrucción </h3>
 		<table  id=caption class=caption>
 			<tr>
 				<td><input type="text" id="tag" name="tag" placeholder="Etiqueta" disabled></input></td>
-				<td><input type="text" id="index" name="index" placeholder="Bloque" disabled></input></td>
+				<td><input type="text" id="index" name="index" placeholder="Conjunto" disabled></input></td>
 				<td><input type="text" id="offset" name="offset" placeholder="Palabra" disabled></input></td>
 			</tr>
 			<tr> 	
