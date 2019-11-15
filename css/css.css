@@ -15,7 +15,7 @@ h4 {margin:0;font-weight:bold;}
 button{
 	background-color:#B2BABB ;
 	border: 0px;
-	border-radius:3px;
+	border-radius:8px;
 	padding:5px;
 	font-size:14px;
 	cursor: pointer;
@@ -141,7 +141,7 @@ table tr td{
 
 
 .header h3 {font-size:90px; text-align:center;font-weight:bold;margin-bottom: 4%;text-transform: uppercase;}
-.header img{width: 120px; height: 100px;float: center;display: inline;margin-left: 7%;}
+.header img{width: 120px; height: 100px;float: left;display: inline;margin-left: 0%;}
 @media screen and (min-width: 767px) {
   .header h3 {font-size:32px; }
    .chart {margin-top:100px; }

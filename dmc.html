@@ -54,7 +54,7 @@
             <li><a href="fa.html">Completamente Asociativa</a></li>
             <li><a href="sa2.html">2-v&iacuteas Asociativa Conjuntos</a></li>
             <li><a href="sa4.html">4-v&iacuteas Asociativa Conjuntos</a></li>
-            <li><a href="analysis.html">An&aacutelisis de Cach&eacute</a></li>
+           <!-- <li><a href="analysis.html">An&aacutelisis de Cach&eacute</a></li>-->
           </ul>
         </div>
       </div>
@@ -64,15 +64,15 @@
 
 		<div class="col-sm-6 col-md-2 configurationTab">
 		<div class="settings_text">
-				<!-----Write Through / Write Back ---><h4>Elegir políticas de Actualizaci&oacuten </h4>
+				<!-----Write Through / Write Back ---><h4>Políticas de Actualizaci&oacuten </h4>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Back" checked> Post-Escritura </input></label>	
                 <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
-                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escribir alrededor </input></label>
+                <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Around"> Escritura sin ubicaci&oacuten </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:1px solid #999;">  
 		</div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de cach&eacute <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
-			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de cach&eacute <font size=-4><br>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
+			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
 				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar</button>
@@ -122,9 +122,9 @@
 	<!------------HEADER ----------------------------------->
 
 	<div class="col-sm-12 col-md-10 header">
-		 <h3><i class="fa fa-sliders" aria-hidden="true"></i>
+		 <h3><img src="img/logoarc115.png" alt="logo de simulador ARC115" ><br><i class="fa fa-sliders" aria-hidden="true"></i>
 
-         <font face="titleFont"> Correspondencia Directa </font><img src="img/logoarc115.png" alt="logo de simulador ARC115" ></h3>
+         <font face="titleFont"> Correspondencia Directa </font></h3>
 
   	</div> 
 	<!-----------------------INSTRUCTION BREAKDOWN ----------------------------------->

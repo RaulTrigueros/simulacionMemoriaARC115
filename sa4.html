@@ -55,7 +55,7 @@
 			  <li><a href="fa.html">Completamente Asociativa</a></li>
 			  <li><a href="sa2.html">Asociativa por Conjuntos: 2-vías</a></li>
 			  <li><a href="sa4.html">Asociativa Conjuntos: 4-vías</a></li>
-			  <li><a href="analysis.html">Análisis de Caché</a></li>
+			 <!-- <li><a href="analysis.html">Análisis de Caché</a></li>-->
 			</ul>
 		  </div>
 		</div>
@@ -70,7 +70,7 @@
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="LRU"> LRU </input></label>
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Aleatorio </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
-				<!-----Escribir A Través De / Escribir Atrás ---><h4>Escribir políticas </h4>
+				<!-----Escribir A Través De / Escribir Atrás ---><h4>Políticas de Actualizaci&oacuten </h4>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Post-Escritura </input></label>	
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
@@ -78,11 +78,11 @@
 
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">           
 			</div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de caché <font size=-4>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
-			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de caché <font size=-4><br>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
+			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
-				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Restablecer</button>
+				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar</button>
 				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar</button>				
 
 			</div>
@@ -97,7 +97,7 @@
 				</select>
 					<font size=-4>(en hex)</font>#</label>
                  <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
-              <input  class="col-xs-12 col-sm-12" type="text" placeholder="List of next 10 Instructions" id="list_of_instruction" />
+              <input  class="col-xs-12 col-sm-12" type="text" placeholder="Lista de las siguientes 10 instrucciones" id="list_of_instruction" />
 			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Generar Aleatorio</button>
 			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction()">Enviar</button>
 		</div>
@@ -127,8 +127,8 @@
 	<div class="col-sm-12 col-md-9">
 	<!------------ HEADER ----------------------------------->
 	<div class="col-sm-12 col-md-10 header">
-	<h3><i class="fa fa-sliders" aria-hidden="true"></i>
-						<font face="titleFont">Asociativa por Conjuntos: 4-vías </font><img src="img/logoarc115.png" alt="logo de simulador ARC115" ></h3>	
+	<h3><img src="img/logoarc115.png" alt="logo de simulador ARC115" ><br><i class="fa fa-sliders" aria-hidden="true"></i>
+						<font face="titleFont">Asociativa por Conjuntos: 4-vías </font></h3>	
 	</div>
 	<!----------------------- ANÁLISIS DE INSTRUCCIÓN ----------------------------------->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
