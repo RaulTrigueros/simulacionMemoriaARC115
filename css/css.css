@@ -171,7 +171,7 @@ table tr td{
 .addressevaluated input{width:100%; margin-left:-2px; padding:0; text-align:center; font-weight:bold; text-transform:uppercase; }
 .addressevaluatedVM input{width:100%; margin-left:-2px; padding:0; text-align:center; font-weight:bold; text-transform:uppercase; }
 .memorydiv{  padding:5px 10px;}
-.memoryblocks{height:90px; border:1.5px solid #000; overflow:auto; display: block; white-space: nowrap; width:100%; z-index: 9999;}
+.memoryblocks{height:90px; border:1.5px solid #000; overflow:auto; display: inline-block; white-space: nowrap; width:100%; z-index: 9999;}
 .memoryblocks table{width:100%; font-size:11px; text-align:center;}
 .caption{width:90%; text-align:center; margin:0 auto; padding-bottom:10px;}
 .caption tr:nth-child(2) td{border:1px #000 solid;}
