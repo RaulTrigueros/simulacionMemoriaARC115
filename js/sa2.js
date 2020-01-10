@@ -150,7 +150,7 @@ function instructionLoadExecuteSteps()
 				}
 					validBitArray[validindex][LRUIndex]=1;
 				validTagArray[validindex][LRUIndex]=document.getElementById("tag").value ;
-				var stringDataArray = "B. "+block+" W. 0 - "+ offsetrange ;
+				var stringDataArray = "B. "+block+" P. 0 - "+ offsetrange ;
 				validDataArray[validindex][LRUIndex]= stringDataArray.toUpperCase();
 				
 
@@ -271,7 +271,7 @@ function instructionLoadExecuteSteps()
 		else if (step==101){
 
 		if (validDirtyBitArray[validindex][LRUIndex]==1){
-				document.getElementById("information_text").innerHTML ="La memoria caché reemplaza el índice anterior. Como el bit sucio es 1, la memoria se actualizará.";
+				document.getElementById("information_text").innerHTML ="La memoria caché reemplaza el índice anterior. Como el bit de modificación es 1, la memoria se actualizará.";
 				var old_binary = validTagArray[validindex][LRUIndex]+""+document.getElementById("index").value;
 				var old_block = parseInt(old_binary,2);		
 				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#2222FF";
@@ -286,7 +286,7 @@ function instructionLoadExecuteSteps()
 		}
 		
 		else{
-			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el bloque anterior. Como el bit sucio es 0, no se requiere ninguna operación adicional.";	
+			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el bloque anterior. Como el bit de modificación es 0, no se requiere ninguna operación adicional.";	
 		}
 		step=5;
 	}
@@ -297,7 +297,7 @@ function instructionLoadExecuteSteps()
 		else{
 		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
 																"Bloque "+ block.toUpperCase() +" con Tamaño de bloque "+
-																"0" + offsetrange + "  se copia en el caché";
+																"0" + offsetrange + "  se copia en la caché";
 									
 		}
 
@@ -373,10 +373,10 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se aprueba la política de 'escritura inmediata'. La memoria y la caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se aprueba la política de 'Escritura Inmediata'. La memoria principal y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la política de Post-escritura. La caché se actualizará con bit sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de Post-escritura. La caché se actualizará con bit de modificación.";
 		}
 	}
 	else if (step_store==2){
@@ -416,13 +416,13 @@ function storeInstruction(){
 		if (store_cache_found){
 			if (writeThroughBack=="Write Through"){
 
-					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y el caché se actualizan";
+					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y la caché se actualizan";
 
 					document.getElementById(("tr"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor ="#2222FF";	
 					listOfInstructionsTF.push(1);
 				}
 			else{ // Write Back with Cache Hit
-				document.getElementById("information_text").innerHTML ="El caché resaltada se actualiza con bit sucio = 1";
+				document.getElementById("information_text").innerHTML ="El caché resaltada se actualiza con bit de modificación = 1";
 				validDirtyBitArray[validindex][whichTableContainsValidTag]=1;
                 listOfInstructionsTF.push(1);
 				loadTableSetAssociative();
@@ -445,13 +445,13 @@ function storeInstruction(){
 				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza según la Política de asignación.";
 				validBitArray[validindex][LRUIndex]=1;
 				validTagArray[validindex][LRUIndex]=document.getElementById("tag").value ;
-				var stringDataArray = "B. "+block+" W. 0 - "+ offsetrange ;
+				var stringDataArray = "B. "+block+" P. 0 - "+ offsetrange ;
 				validDataArray[validindex][LRUIndex]= stringDataArray.toUpperCase();
 				loadTableSetAssociative();
 				document.getElementById(("tr"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="blue";
 			}
 			else{
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. El bloque de memoria se actualiza según la Política de escritura.";					
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. El bloque de memoria se actualiza según la Política de Escritura.";					
 
 			}
 
