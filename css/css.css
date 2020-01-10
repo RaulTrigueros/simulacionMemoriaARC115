@@ -5,17 +5,17 @@
 
 body {
 	font-size:14px;
-	background-color: #f4fafb;
+	background-color:#ABEBC6 ;
 	background-size : cover;
 	font-family:sans-serif;
-	background-attachment: fixed;
+	
 }
 h3 {margin: 5px;}
-h4 {margin:0;}
+h4 {margin:0;font-weight:bold;}
 button{
-	background-color:#EFEFFF;
+	background-color:#B2BABB ;
 	border: 0px;
-	border-radius:3px;
+	border-radius:8px;
 	padding:5px;
 	font-size:14px;
 	cursor: pointer;
@@ -26,11 +26,12 @@ button:active, button:focus{
 	font-weight:bold;
 }
 table{
-	border:0px;
+	border:2px #000 solid;
+	
 }
 table tr td{
-	background-color: rgba(250,250,250,0.7);
-	
+	background-color: rgba(250,250,240,0.5);
+
 }
 .left{
 	border: 2px #333 solid;
@@ -84,6 +85,7 @@ table tr td{
 .reppol {
 	padding:0;
 	margin:5px 0px;
+	text-align: center;
 	
 }
 
@@ -139,10 +141,8 @@ table tr td{
 }
 
 
-
-
-
-.header h3 {font-size:55px; text-align:center;}
+.header h3 {font-size:90px; text-align:center;font-weight:bold;margin-bottom: 4%;text-transform: uppercase;}
+.header img{width: 120px; height: 100px;float: left;display: inline;margin-left: 0%;}
 @media screen and (min-width: 767px) {
   .header h3 {font-size:32px; }
    .chart {margin-top:100px; }
@@ -156,6 +156,14 @@ table tr td{
    .chart {margin-top:0px; }
 }
 
+#sidebar {
+	background-color: #58D68D ;
+	padding-top: 20px;
+	float:right;
+	border:1.5px #000 solid;
+	
+
+}
 
 
 .addressevaluated{ margin:0 auto; float:left;	vertical-align: bottom;}
@@ -163,7 +171,7 @@ table tr td{
 .addressevaluated input{width:100%; margin-left:-2px; padding:0; text-align:center; font-weight:bold; text-transform:uppercase; }
 .addressevaluatedVM input{width:100%; margin-left:-2px; padding:0; text-align:center; font-weight:bold; text-transform:uppercase; }
 .memorydiv{  padding:5px 10px;}
-.memoryblocks{height:90px; border:1px solid #000; overflow:auto; display: inline-block; white-space: nowrap; width:100%; z-index: 9999;}
+.memoryblocks{height:90px; border:1.5px solid #000; overflow:auto; display: inline-block; white-space: nowrap; width:100%; z-index: 9999;}
 .memoryblocks table{width:100%; font-size:11px; text-align:center;}
 .caption{width:90%; text-align:center; margin:0 auto; padding-bottom:10px;}
 .caption tr:nth-child(2) td{border:1px #000 solid;}
@@ -181,3 +189,4 @@ table tr td{
 /*.settings_text{background-color : rgba(250,250,250,0.8); border-radius:5px; margin-top:3px; margin-left:5px; margin-bottom:5px; text-align:center; padding-right:2px;}*/
 .settings_image{ border-radius:36px; width:36px; height:36px;  }
 .settings_image img {width:36px; }
+
