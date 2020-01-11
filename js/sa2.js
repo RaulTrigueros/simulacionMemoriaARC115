@@ -228,7 +228,7 @@ function instructionLoadExecuteSteps()
 
 			}			
 			else{
-				document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta en caché NO son lo mismo.";		
+				document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta en caché NO son las mismas.";		
 				var newarrowcache = arrowcache.replace (/and.png/g,"and_miss.png");
 				if (cacheReplacementPolicy != "Random")
 				{
@@ -238,7 +238,7 @@ function instructionLoadExecuteSteps()
 				if (validBitArray[validindex][LRUIndex]==1){replace_old_cache = true;}
 				validBitArray[validindex][LRUIndex]=1;
 				validTagArray[validindex][LRUIndex]=document.getElementById("tag").value ;
-				var stringDataArray = "Block "+block+" Word 0 - "+ offsetrange ;
+				var stringDataArray = "Bloque "+block+" Palabra 0 - "+ offsetrange ;
 				validDataArray[validindex][LRUIndex]= stringDataArray.toUpperCase();
 			}
 					
