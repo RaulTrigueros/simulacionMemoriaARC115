@@ -156,7 +156,7 @@ function instructionLoadExecuteSteps()
 
 		if (validBitArray[validIndex]==0)
 		{
-			document.getElementById("information_text").innerHTML ="El bit válido es 0, por lo tanto, se obtiene FALLO DE CACHÉ. La memoria caché se actualiza con el nuevo conjunto de datos.";
+			document.getElementById("information_text").innerHTML ="El bit válido es 0, por lo tanto, se obtiene FALLO DE CACHÉ. <br>La memoria caché se actualiza con el nuevo conjunto de datos.";
             listOfInstructionsTF.push(0); document.getElementById("information_text").style.backgroundColor="#F09999";
 			var newarrowcache = arrowcache.replace ("and.png","and_miss.png");
 			document.getElementById("drawingSpace").innerHTML = newarrowcache;
@@ -164,7 +164,7 @@ function instructionLoadExecuteSteps()
 		
 		}
 		else{
-			document.getElementById("information_text").innerHTML="El bit válido es 1, por lo tanto, debemos buscar en la etiqueta. ";
+			document.getElementById("information_text").innerHTML="El bit válido es 1, por lo tanto, debemos buscar en la etiqueta.<br>";
 
 			//COMPARE IMAGE
 			var compareY = drawingSpaceHeight - 175;
@@ -195,7 +195,7 @@ function instructionLoadExecuteSteps()
 	else if (step==101){
 
 		if (validDirtyBitArray[validIndex]==1){
-				document.getElementById("information_text").innerHTML ="La memoria caché reemplaza el bloque anterior. Como el bit sucio es 1, la memoria se actualizará.";
+				document.getElementById("information_text").innerHTML ="La memoria caché reemplaza el bloque anterior. Como el Bit Sucio es 1, la memoria se actualizará.";
 				var old_binary = validTagArray[validIndex]+""+document.getElementById("index").value;
 				var old_block = parseInt(old_binary,2);		
 				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#2222FF";
@@ -210,7 +210,7 @@ function instructionLoadExecuteSteps()
 		}
 		
 		else{
-			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el bloque anterior. Como el bit sucio es 0, no se requiere operación adicional.";	
+			document.getElementById("information_text").innerHTML="La memoria caché reemplaza el bloque anterior. Como el Bit Sucio es 0, no se requiere operación adicional.";	
 		}
 		step=4;
 	}
@@ -219,7 +219,7 @@ function instructionLoadExecuteSteps()
 
 		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
 																"Bloque "+ block.toUpperCase() +" con Tamaño de bloque "+
-																"0 a " + offsetrange + " se transfiere al caché";
+																"0 a " + offsetrange + " se transfiere a la caché";
 		document.getElementById("information_text").style.backgroundColor="#2222FF";
 		document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
 		document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true);
@@ -279,7 +279,7 @@ function storeInstruction(){
 			document.getElementById("information_text").innerHTML ="Se aprueba la política de 'escritura inmediata'. La memoria y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la política de 'Post-escritura'. La caché se actualizará con bit sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de 'Post-escritura'. La caché se actualizará con el Bit Sucio.";
 		}
 	}
 	else if (step_store==2){
@@ -337,12 +337,12 @@ function storeInstruction(){
 		document.getElementById("information_text").style.backgroundColor="yellow";
 		if (store_cache_found){	
 			if (writeThroughBack=="Write Through"){
-					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y el caché se actualizan";
+					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y la caché se actualizan";
 					document.getElementById(("tr"+validIndex)).style.backgroundColor ="#2222FF";	
 					listOfInstructionsTF.push(1);
 				}
 			else {
-				document.getElementById("information_text").innerHTML ="El caché resaltado se actualiza con bit sucio = 1";
+				document.getElementById("information_text").innerHTML ="En la tabla de caché la sección resaltada con amarillo se actualiza con BitSucio = 1";
 				validDirtyBitArray[validIndex]=1;
                 listOfInstructionsTF.push(1);
 				document.getElementById("tableSpace").innerHTML = loadTable();
