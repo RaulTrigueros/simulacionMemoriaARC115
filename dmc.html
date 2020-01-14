@@ -64,7 +64,7 @@
 
 		<div class="col-sm-6 col-md-2 configurationTab">
 		<div class="settings_text">
-				<!-----Write Through / Write Back ---><h4>Políticas de Actualizaci&oacuten </h4>
+				<!-----Write Through / Write Back - --><h4>Políticas de Actualizaci&oacuten </h4>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Back" checked> Post-Escritura </input></label>	
                 <label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack"  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
@@ -72,7 +72,7 @@
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:1px solid #999;">  
 		</div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de cach&eacute <font size=-4><br>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
-			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /></div>
 			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
 			<div class ="submit">
 				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar <i class="fa fa-undo"aria-hidden="true"></i></button>
@@ -119,7 +119,7 @@
 	<!------------------------------RIGHT SIDE-------------------------------------------->
 	
 	<div class="col-sm-12 col-md-9" >
-	<!------------HEADER ----------------------------------->
+	<!------------HEADER --------------------------------- -->
 
 	<div class="col-sm-12 col-md-10 header">
 		 <h3><img src="img/logoarc115.png" alt="logo de simulador ARC115" ><br>
@@ -127,9 +127,10 @@
          <font face="titleFont"> Correspondencia Directa </font></h3>
 
   	</div> 
-	<!-----------------------INSTRUCTION BREAKDOWN ----------------------------------->
+	<!-----------------------INSTRUCTION BREAKDOWN --------------------------------- -->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
 		<h3><i class="fa fa-sort" aria-hidden="true"></i> Desglose de instrucciones </h3>
+		<center color="red"><h4>Dirección Física</h4></center>
 		<table  id=caption class=caption>
 			<tr>
 				<td><input type="text" id="tag" name="tag" placeholder="Etiqueta" disabled></input></td>
@@ -145,9 +146,9 @@
 	</div>
 	<!--------------------DRAWING LAYER -------------------------------->
 		<div id="drawingSpace" class="drawingSpace"></div>
-	<!-------------------------MEMORY BLOCK ------------------------------->
+	<!-------------------------MEMORY BLOCK ----------------------------- -->
 		<div id="memorydiv" class="col-sm-12 col-md-7 memorydiv">
-			<h3><i class="fa fa-th-large" aria-hidden="false"></i> Bloque de memoria Principal</h3>
+			<h3><i class="fa fa-th-large" aria-hidden="false"></i> Bloque de Memoria Principal</h3>
 				<div id="memoryblocks" class="memoryblocks"></div>
 		</div>
 

@@ -276,10 +276,10 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se aprueba la política de 'escritura inmediata'. La memoria y la caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se aprueba la política de escritura inmediata. La memoria y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la política de 'Post-escritura'. La caché se actualizará con el Bit Sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de post-escritura. La caché se actualizará con el Bit Sucio.";
 		}
 	}
 	else if (step_store==2){
@@ -342,7 +342,7 @@ function storeInstruction(){
 					listOfInstructionsTF.push(1);
 				}
 			else {
-				document.getElementById("information_text").innerHTML ="En la tabla de caché la sección resaltada con amarillo se actualiza con BitSucio = 1";
+				document.getElementById("information_text").innerHTML ="En la tabla de caché la sección resaltada con amarillo se actualiza con Bit Sucio = 1";
 				validDirtyBitArray[validIndex]=1;
                 listOfInstructionsTF.push(1);
 				document.getElementById("tableSpace").innerHTML = loadTable();

@@ -62,6 +62,30 @@
 
 
 	<div class="col-sm-12 col-md-3" id="sidebar">
+		<!------------------ LOAD INSTRUCTION ---------------------------------->
+		<div class="col-sm-6 col-md-2 instruction">
+			<h4>  Instrucción	</h4>
+            <label class="col-xs-8 col-sm-8 labels">
+				<select name="InstructionType" id="InstructionType"> 
+					<option value="Load"> Cargar </option>
+					<option value="Store"> Almacenar </option>
+				</select>
+					<font size=-4>(en hex)</font>#</label>
+                 <input  class="col-xs-4 col-sm-4" type="text" name="instruction_data" id="instruction_data"  value=3 />
+            <input  class="col-xs-12 col-sm-12" type="text" placeholder="Lista de las siguientes 10 instrucciones" id="list_of_instruction" />
+			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Aleatorio <i class="fa fa-random"aria-hidden="true"></i></button>
+			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction('fa')">Enviar <i class="fa fa-external-link-square"aria-hidden="true"></i></button>
+		</div>
+		<!------------------INFORMATION  -------------------------------->
+		<div class="col-sm-6 col-md-2 information" id="information">
+			<h4> Información </h4>
+			<div id="information_text" class="col-sm-12 col-md-12 information_text">
+				Por favor configure los ajustes de la caché.
+			</div>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Siguiente <i class="fa fa-play"aria-hidden="true"></i></button>
+			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Avance r&aacutepido <i class="fa fa-play"aria-hidden="true"></i></button>
+		</div>
+		
 		<div class="col-sm-6 col-md-2 configurationTab">
 			<div class="settings_text"><h4>Políticas de reemplazo </h4>
 				<!----------Replacement Policy-------->
