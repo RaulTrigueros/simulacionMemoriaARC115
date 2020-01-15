@@ -219,7 +219,7 @@ function instructionLoadExecuteSteps()
 								newarrowcache = newarrowcache.replace("and.png","and_miss.png");
 								var newarrowcache= newarrowcache.replace ("and.png","and_hit.png");
 							}
-							document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta de cache (cached tag?) para la tabla" + (indexHighlight+1) +" es la mismo.";
+							document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta de cache para la tabla" + (indexHighlight+1) +" es la misma.";
 
 			}
 			else{
@@ -251,12 +251,12 @@ function instructionLoadExecuteSteps()
 			
 				if (!hitBoolean){
 					var finalarrowcache = newarrowcache.replace("or.png","or_miss.png");
-					document.getElementById("information_text").innerHTML +="Toda compuerta AND es ERROR, por tanto FALLO DE CACHÉ.";
+					document.getElementById("information_text").innerHTML +="Toda compuerta AND es FALLO, por tanto FALLO DE CACHÉ.";
 					if (replace_old_cache == true){step = 100;}
 				}
 				else{
 					var finalarrowcache = newarrowcache.replace("or.png","or_hit.png");
-					document.getElementById("information_text").innerHTML +="Una de las compuertas AND es ERROR, por tanto FALLO DE CACHÉ.";
+					document.getElementById("information_text").innerHTML +="Una de las compuertas AND es FALLO, por tanto FALLO DE CACHÉ.";
 
 				}
 		
@@ -390,15 +390,15 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se adopta la Política 'Escritura inmediata'. La Memoria y la Caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de Escritura inmediata. La Memoria y la Caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la Política 'Post-escritura'. La caché se actualizará con el bit sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política Post-escritura. La caché se actualizará con el bit sucio.";
 		}
 	}
 	else if (step_store==2){
 		step1();
-		document.getElementById("information_text").innerHTML ="La búsqueda se ejecuta para determinar si la dirección solicitada está disponible (available) en la tabla de caché.";
+		document.getElementById("information_text").innerHTML ="La búsqueda se ejecuta para determinar si la dirección solicitada está disponible en la tabla de caché.";
 
 
 		
@@ -433,7 +433,7 @@ function storeInstruction(){
 		if (store_cache_found){
 			if (writeThroughBack=="Write Through"){
 
-					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y el caché se actualizan.";
+					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y la caché se actualizan.";
 
 					document.getElementById(("tr"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor ="#2222FF";	
 					listOfInstructionsTF.push(1);
@@ -459,16 +459,16 @@ function storeInstruction(){
 					LRUIndex = LRU[validindex].shift();
 					LRU[validindex].push(LRUIndex);
 				}
-				document.getElementById("information_text").innerHTML ="La caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza basado en la Política 'Escribir En Ubicación.";
+				document.getElementById("information_text").innerHTML ="La caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza según la política de Escritura con Ubicación.";
 				validBitArray[validindex][LRUIndex]=1;
 				validTagArray[validindex][LRUIndex]=document.getElementById("tag").value ;
-				var stringDataArray = "B. "+block+" W. 0 - "+ offsetrange ;
+				var stringDataArray = "B. "+block+" P. 0 - "+ offsetrange ;
 				validDataArray[validindex][LRUIndex]= stringDataArray.toUpperCase();
 				loadTableSetAssociative();
 				document.getElementById(("tr"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="blue";
 			}
 			else{
-				document.getElementById("information_text").innerHTML ="La caché no contiene la etiqueta solicitada. Sólo el bloque de memoria se actualiza basado en la Política 'Escribir Alrededor'.";					
+				document.getElementById("information_text").innerHTML ="La caché no contiene la etiqueta solicitada. Sólo el bloque de memoria se actualiza basado en la política de Escritura sin Ubicación'.";					
 
 			}
 

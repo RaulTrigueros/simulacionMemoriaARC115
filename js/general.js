@@ -64,7 +64,7 @@ function setFirstTableGeneric(tagBit, offsetBit){
 function loadTable(){
 	var whattowrite="<table class=drawtable id=cachetable>"+
 						"<tr>"+
-							"<td  id=marker-1> bloque</td>"+
+							"<td  id=marker-1> Línea</td>"+
 							"<td> Válido </td>"+
 							"<td> Etiqueta </td>"+
 							"<td> Dato (Hex) </td>"+
@@ -328,7 +328,7 @@ function printListOfPrevInsLS(arr_ListofInstructions, arr_ListofInstructionsTF, 
                     cacheResult="Fallo";
                 }
             else{
-                cacheResult="ADJUSTMENT";
+                cacheResult="Acierto";
             }
 			listofPrevIns +="<li> "+ arr_ListofInstructionsLS[p]+ " "+ arr_ListofInstructions[p].toUpperCase()+" ["+cacheResult+"] </li>"; 
 		}

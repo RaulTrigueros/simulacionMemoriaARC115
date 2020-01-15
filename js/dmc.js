@@ -355,7 +355,7 @@ function storeInstruction(){
 			listOfInstructionsTF.push(0);
 			var	writePolicy = $("input[name=WriteAllocateAround]:checked").val();
 			if (writePolicy=="Write Allocate"){
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza en función de la Política de asignación al escribir.";
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza en función de la política de Escritura con Ubicación.";
 				validBitArray[validIndex]=1;
 				validTagArray[validIndex]=document.getElementById("tag").value ;
 				validDataArray[validIndex]= ("Bloque "+block+" Palabra 0 - "+ offsetrange).toUpperCase();
@@ -368,7 +368,7 @@ function storeInstruction(){
 			
 			}
 			else{
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Solo el bloque de memoria se actualiza según la Política de escritura.";					
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Solo el bloque de memoria se actualiza según la política de escritura.";					
 
 			}
 			//Show affected memory block
