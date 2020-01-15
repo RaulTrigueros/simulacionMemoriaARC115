@@ -442,7 +442,7 @@ function storeInstruction(){
 					LRUIndex = LRU[validindex].shift();
 					LRU[validindex].push(LRUIndex);
 				}
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza según la política de asignación.";
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza según la política de Escritura con Ubicación.";
 				validBitArray[validindex][LRUIndex]=1;
 				validTagArray[validindex][LRUIndex]=document.getElementById("tag").value ;
 				var stringDataArray = "B. "+block+" P. 0 - "+ offsetrange ;
@@ -451,7 +451,7 @@ function storeInstruction(){
 				document.getElementById(("tr"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="blue";
 			}
 			else{
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. El bloque de memoria se actualiza según la política de escritura.";					
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. El bloque de memoria se actualiza según la política de Escritura sin Ubicación.";					
 
 			}
 

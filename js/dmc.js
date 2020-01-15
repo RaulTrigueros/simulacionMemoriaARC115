@@ -276,10 +276,10 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se aprueba la política de escritura inmediata. La memoria y la caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se aprueba la política de Escritura Inmediata. La memoria y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la política de post-escritura. La caché se actualizará con el Bit Sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de Post-escritura. La caché se actualizará con el Bit Sucio.";
 		}
 	}
 	else if (step_store==2){
@@ -368,7 +368,7 @@ function storeInstruction(){
 			
 			}
 			else{
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Solo el bloque de memoria se actualiza según la política de escritura.";					
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Solo el bloque de memoria se actualiza según la política de Escritura sin Ubicación.";					
 
 			}
 			//Show affected memory block
