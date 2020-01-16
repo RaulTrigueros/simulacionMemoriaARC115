@@ -59,7 +59,7 @@ function loadTableSetAssociative(){
 									"<td> Valid </td>"+
 									"<td> Etiqueta </td> "+
 									"<td> Dato (Hex) </td>"+
-									"<td> Bit sucio </td>"+
+									"<td> Dirty Bit </td>"+
 								"</tr>";
 		for (j=0; j<cache;j++)
 		{

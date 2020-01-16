@@ -68,7 +68,7 @@ function loadTable(){
 							"<td> Válido </td>"+
 							"<td> Etiqueta </td>"+
 							"<td> Dato (Hex) </td>"+
-							"<td> Bit de modificación </td>"+
+							"<td> Dirty Bit </td>"+
 						"</tr>";
 	for (z = 0; z< cache; z++) { 
     whattowrite += "<tr id=tr"+z+">"+
