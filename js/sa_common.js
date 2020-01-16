@@ -43,8 +43,12 @@ var validindex;
 
 function loadCommonConfiguration()
 {
-	offsetBit = parseInt(document.getElementById('offsetsize').value);
-    offset = Math.pow(2,offsetBit);    
+	/*offsetBit = parseInt(document.getElementById('offsetsize').value);
+	offset = Math.pow(2,offsetBit);*/
+	
+	offset =parseInt(document.getElementById('offsetsize').value);
+	offsetBit = Math.log2(offset);
+
 	cache = parseInt(document.getElementById('cachesize').value)/ offset/setAssociative;
 	memory = parseInt(document.getElementById('memorysize').value);
 }

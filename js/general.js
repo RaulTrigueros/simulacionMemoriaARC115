@@ -8,7 +8,7 @@ function checkPowerOfTwo(arbitaryNumber)
 	else
 	{
 		return false;
-	}
+	} 
 }
 function logtwo(arbitaryNumber)
 {
@@ -55,11 +55,11 @@ function generateRandomNumber()
 ///////////////////////////// SET UP CONFIGURATION////////////////////////////////////////
 function setFirstTableGeneric(tagBit, offsetBit){
 
-	document.getElementById("tagbit").innerHTML= tagBit + " bit";
-	document.getElementById("offsetbit").innerHTML= offsetBit + " bit";	
-	document.getElementById('cachesize').disabled = true;
-	document.getElementById('memorysize').disabled = true;
-	document.getElementById('offsetsize').disabled = true;
+	document.getElementById("tagbit").innerHTML= tagBit + " bit";			//etiqueta
+	document.getElementById("offsetbit").innerHTML= offsetBit + " bit";		//palabra	
+	document.getElementById('cachesize').disabled = true;					
+	document.getElementById('memorysize').disabled = true;					
+	document.getElementById('offsetsize').disabled = true;					
 }
 function loadTable(){
 	var whattowrite="<table class=drawtable id=cachetable>"+
@@ -177,20 +177,20 @@ function instructionBreakdownProcess(type)
 ///////////////////PRINT CONFIGURATION///////////////////////////////
 function printConfiguration()
 {
-    return(" Palabra = " + offsetBit+ " bits"+
-                "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset)+"/"+ offset+") = "+ cacheBit + " bits"+
-                "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
-                "<br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
+    return("Bits de direccion en cache = log<sub>2</sub>("+(cache*offset)+"/"+ offset+") = "+ cacheBit + " bits"+
+				"<br><br> Longitud de la direccion de Memoria principal = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+				"<br><br> Palabra = log<sub>2</sub>(" + offset + ") = "+offsetBit +" bits"+
+                "<br><br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
+                "<br><br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
                 "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationSA2()
 {
-    return(" Palabra = " + offsetBit+ " bits"+
-                "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset*2)+"/"+ offset+"/2) = "+ cacheBit + " bits"+
-                "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
-                "<br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
+    return(" Longitud de la direccion de Memoria principal = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+				"<br><br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
+				"<br><br> Conjunto = log<sub>2</sub>("+(cache*offset*2)+"/"+ offset+"/2) = "+ cacheBit + " bits"+
+				"<br><br> Palabra = log<sub>2</sub>(" + offset+ ") = "+ offsetBit +" bits"+
+				"<br><br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
                 "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationSA4()
@@ -345,7 +345,7 @@ function endOfInstruction(){
 	document.getElementById("InstructionType").disabled = false;
 	document.getElementById('instruction_data').focus();	
 	document.getElementById('hitmiss').style.backgroundColor="yellow";
-	document.getElementById('genRandom').style.backgroundColor="blue";	
+	document.getElementById('genRandom').style.backgroundColor="#4682b4";	
 }
 //////////////////////////////////////////END OF SIMULATION RUNNING///////////////////////////
 

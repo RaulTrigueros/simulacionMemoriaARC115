@@ -60,17 +60,19 @@
       </div>
     </nav>
 
-
+<!--------------------------------INICIO SIDEBAR------------------------------------------>
 	<div class="col-sm-12 col-md-3" id="sidebar">
 
 		<div class="col-sm-6 col-md-2 configurationTab">
 			<div class="settings_text"><h4>Políticas de reemplazo </h4>
-				<!----------Replacement Policy-------->
+				<!------------POLITICAS DE REMPLAZO------------->
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()" value="FIFO" checked> FIFO </input></label>	
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="LRU"> LRU </input></label>
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Random </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
-				<!-----Write Through / Write Back ---><h4>Políticas de Actualizaci&oacuten </h4>
+				
+				<!------------POLITICAS DE ACTUALIZACION --------------->
+				<h4>Políticas de Actualizaci&oacuten </h4>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Post-Escritura </input></label>	
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
@@ -78,9 +80,10 @@
 
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;"> 
 			</div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de la caché <font size=-4><br>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
-			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de la memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
+			<!--------------INGRESO DE DATOS----------->
+			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de la caché <font size=-4><br>( En bytes y potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=32 /></div>					
+			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de la memoria Principal <font size=-4><br>( En bytes y potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=1024 /> </div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Tamaño de bloque <font size=-4><br>( En bytes y potencia de 2)</font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=4 /></div>
 			<div class ="submit">
 				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar <i class="fa fa-undo"aria-hidden="true"></i></button>
 				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar <i class="fa fa-external-link-square"aria-hidden="true"></i></button>				
@@ -101,7 +104,7 @@
 			<button class="col-xs-6 col-sm-6 onsubmit" id="genRandom" onclick="generateRandomNumber()">Aleatorio <i class="fa fa-random"aria-hidden="true"></i></button>
 			<button class="col-xs-6 col-sm-6 onsubmit" id="submit" onclick="instruction('fa')">Enviar <i class="fa fa-external-link-square"aria-hidden="true"></i></button>
 		</div>
-		<!------------------INFORMATION  -------------------------------->
+		<!------------------INFORMACION  -------------------------------->
 		<div class="col-sm-6 col-md-2 information" id="information">
 			<h4> Información </h4>
 			<div id="information_text" class="col-sm-12 col-md-12 information_text">
@@ -110,7 +113,7 @@
 			<button class="col-xs-6 col-sm-6 onsubmit"  id="next" onclick="instructionLoadOrStore()" disabled>Siguiente <i class="fa fa-play"aria-hidden="true"></i></button>
 			<button class="col-xs-6 col-sm-6 onsubmit"  id="fastforward" onclick="fastForward()" disabled>Avance r&aacutepido <i class="fa fa-play"aria-hidden="true"></i></button>
 		</div>
-		<!-----------------------STATISTICS ---------------------------->
+		<!-----------------------ESTADISTICAS ---------------------------->
 		<div class="col-sm-6 col-md-2 hitmiss" id="hitmiss">
 
 		<b> Estadísticas </b> <br>
@@ -124,16 +127,16 @@
 			<label class="col-xs-6 col-sm-6"> Último índice: </label><label  class="col-xs-6 col-sm-6"  id="lastReplace">&nbsp;</label></dd>
 		</div>
 	</div>
-	<!------------------------------RIGHT SIDE-------------------------------------------->
+	<!------------------------------FIN SIDEBAR-------------------------------------------->
 	
 	<div class="col-sm-12 col-md-9">
 	<!------------HEADER ----------------------------------->
 	<div class="col-sm-12 col-md-10 header">
 		<h3><img src="img/logoarc115.png" alt="logo de simulador ARC115" ><br><font face="titleFont">Correspondencia asociativa </font></h3>	
 	</div>
-	<!-----------------------INSTRUCTION BREAKDOWN ----------------------------------->
+	<!-----------------------DESGLOSE DE MEMORIA PRINCIPAL ----------------------------------->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
-		<h3><i class="fa fa-sort" aria-hidden="true"></i> Desglose de instrucciones </h3>
+		<h3><i class="fa fa-sort" aria-hidden="true"></i> Desglose de instrucciones de <br><center>memoria principal</center></h3>
 		<table  id=caption class=caption>
 			<tr>
 				<td><input type="text" id="tag" name="tag" placeholder="Etiqueta" disabled></input></td>
@@ -147,13 +150,13 @@
 	</div>
 		<!--------------------DRAWING LAYER -------------------------------->
 		<div id="drawingSpace" class="drawingSpace"></div>
-	<!-------------------------MEMORY BLOCK ------------------------------->
+	<!-------------------------BLOQUE DE MEMORIA ------------------------------->
 		<div id="memorydiv" class="col-sm-12 col-md-7 memorydiv">
 			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Bloque de memoria Principal </h3>
 				<div id="memoryblocks" class="memoryblocks"></div>
 		</div>
 
-	<!----------------- CACHE TABLE -------------------------------------->
+	<!----------------- TABLA DE MEMORIA CACHE -------------------------------------->
 		<div id="container" class="col-sm-12 col-md-12 inner_container">
 			 <h3  class="col-sm-12 col-md-12"> <i class="fa fa-table" aria-hidden="true"></i> Tabla caché </u></h3>
 			<div id="tableSpace" class="tableSpace">

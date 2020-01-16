@@ -24,20 +24,24 @@ var cacheBit = 0, memoryBit = 0, offsetBit = 0, tagBit = 0;
 var instructionType = 0;
 
 function loadConfiguration()
-{
-	offsetBit = parseInt(document.getElementById('offsetsize').value);
-    offset = Math.pow(2,offsetBit);    
-	cache = parseInt(document.getElementById('cachesize').value)/ offset;
+{ 
+	/*offsetBit = parseInt(document.getElementById('offsetsize').value);
+	offset = Math.pow(2,offsetBit);*/
+	
+	offset = parseInt(document.getElementById('offsetsize').value);
+	offsetBit = Math.log2(offset);
+
+	cache = parseInt(document.getElementById('cachesize').value)/ offset; 
 	memory = parseInt(document.getElementById('memorysize').value);
 
 	
-	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) == false) { alert ("Caché, Memoria y palabra deben estar en potencia de dos");}
+	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) && checkPowerOfTwo(offset) == false) { alert ("Caché, Memoria y bloque deben estar en potencia de dos");}
 	else
 	{
 		cacheBit = logtwo(cache);
 		memoryBit = logtwo(memory);
 
-        //Condition for Valid Cache Configuration
+        //Condicion  de validacion de configuracion de cache
 		if ((cacheBit>=0) && (memoryBit>=0) && (offsetBit>=0) && (memoryBit>(offsetBit+cacheBit)))
 		{
             tagBit = memoryBit - cacheBit - offsetBit;
@@ -58,7 +62,6 @@ function loadConfiguration()
 		}
 	}
 }
-
 
 function setfirsttable(){
 	
@@ -97,9 +100,9 @@ function instructionLoadExecuteSteps()
 		window.scroll(0,0);
 		document.getElementById("information_text").innerHTML ="El bloque solicitado se buscará en la memoria caché como se resalta en amarillo";
 		document.getElementById("tag").style.backgroundColor ="";
-		document.getElementById("index").style.backgroundColor="Yellow";
+		document.getElementById("index").style.backgroundColor="#ffe740";
 		document.getElementById("offset").style.backgroundColor="";
-		document.getElementById("information_text").style.backgroundColor="Yellow";
+		document.getElementById("information_text").style.backgroundColor="#ffe740";
 		
 		   
 		var findtherow = "tr"+validIndex ;
@@ -112,7 +115,7 @@ function instructionLoadExecuteSteps()
 		arrowcache = "<svg width = 100% height=100%><path d='"+path+"' stroke='red' stroke-width='1.25' fill='none'/>";
 		document.getElementById("drawingSpace").innerHTML = arrowcache+"</svg>";
 
-		document.getElementById(findtherow).style.backgroundColor ="yellow";	
+		document.getElementById(findtherow).style.backgroundColor ="#ffe740";	
 	
 
 	}
@@ -124,7 +127,7 @@ function instructionLoadExecuteSteps()
 	else if (step==3){
 		document.getElementById("information_text").innerHTML ="A continuación se muestra el diagrama de análisis.";
 		document.getElementById("information_text").style.backgroundColor="";
-		document.getElementById(("tag"+validIndex)).style.backgroundColor ="blue";	
+		document.getElementById(("tag"+validIndex)).style.backgroundColor ="#4682b4";	
 		window.scroll(0,(drawingSpaceHeight-200));
 		var tagpathheight = drawingSpaceHeight - 150;
 		var validtagV = drawingSpaceHeight - 100;
@@ -137,7 +140,7 @@ function instructionLoadExecuteSteps()
 			
 			//DATA VERTICAL LINE
 			var path3 = "M "+(validXY+50)+","+v2+" V "+(drawingSpaceHeight-100);
-			arrowcache += "<path d='"+path3+"' stroke='blue' stroke-width='1.25' fill='none'/>";
+			arrowcache += "<path d='"+path3+"' stroke='#4682b4' stroke-width='1.25' fill='none'/>";
 			
 			//INSTRUCTION BREAKDOWN TAG
 			var boundTagBit =  document.getElementById("tagbit").getBoundingClientRect();
@@ -182,7 +185,8 @@ function instructionLoadExecuteSteps()
                 listOfInstructionsTF.push(1);
 			}
 			else{
-				document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta en caché NO son lo mismo. Por lo tanto, FALLO DE CACHÉ";	             document.getElementById("information_text").style.backgroundColor="#FFcc55";				
+				document.getElementById("information_text").innerHTML+="La etiqueta solicitada y la etiqueta en caché NO son lo mismo. Por lo tanto, FALLO DE CACHÉ";	             
+				document.getElementById("information_text").style.backgroundColor="#ffe740";				
 				var newarrowcache = arrowcache.replace ("img/and.png","img/and_miss.png");
 				document.getElementById("drawingSpace").innerHTML = newarrowcache;	
 				listOfInstructionsTF.push(0);
@@ -198,14 +202,14 @@ function instructionLoadExecuteSteps()
 				document.getElementById("information_text").innerHTML ="La memoria caché reemplaza el bloque anterior. Como el Bit Sucio es 1, la memoria se actualizará.";
 				var old_binary = validTagArray[validIndex]+""+document.getElementById("index").value;
 				var old_block = parseInt(old_binary,2);		
-				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#2222FF";
+				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#4682b4";
 				document.getElementById(("memoryRow"+old_block)).scrollIntoView(true);
 				validDirtyBitArray[validIndex]=0;
 				document.getElementById("drawingSpace").innerHTML = "";
 				resetColouring();
-				document.getElementById(("tag"+validIndex)).style.backgroundColor="#2222FF";
-				document.getElementById(("valid"+validIndex)).style.backgroundColor="#2222FF";				
-				document.getElementById(("tr"+validIndex)).style.backgroundColor="#2222FF";
+				document.getElementById(("tag"+validIndex)).style.backgroundColor="#4682b4";
+				document.getElementById(("valid"+validIndex)).style.backgroundColor="#4682b4";				
+				document.getElementById(("tr"+validIndex)).style.backgroundColor="#4682b4";
 				
 		}
 		
@@ -220,8 +224,8 @@ function instructionLoadExecuteSteps()
 		document.getElementById("information_text").innerHTML = "La tabla de caché se actualiza en consecuencia. <br>"+ 
 																"Bloque "+ block.toUpperCase() +" con Tamaño de bloque "+
 																"0 a " + offsetrange + " se transfiere a la caché";
-		document.getElementById("information_text").style.backgroundColor="#2222FF";
-		document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
+		document.getElementById("information_text").style.backgroundColor="#4682b4";
+		document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#4682b4";
 		document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true);
 		validBitArray[validIndex]=1;
 		validTagArray[validIndex]=document.getElementById("tag").value ;
@@ -230,8 +234,8 @@ function instructionLoadExecuteSteps()
 		document.getElementById("tableSpace").innerHTML = loadTable();
 		resetColouring();
 		document.getElementById("index").style.backgroundColor ="";
-		document.getElementById("tag").style.backgroundColor ="blue";
-		document.getElementById(("tr"+validIndex)).style.backgroundColor ="blue";	
+		document.getElementById("tag").style.backgroundColor ="#4682b4";
+		document.getElementById(("tr"+validIndex)).style.backgroundColor ="#4682b4";	
 
 
 	}
@@ -297,9 +301,9 @@ function storeInstruction(){
 			//Find the valid index in cache table
 			window.scroll(0,0);
 			document.getElementById("tag").style.backgroundColor ="";
-			document.getElementById("index").style.backgroundColor="Yellow";
+			document.getElementById("index").style.backgroundColor="#ffe740";
 			document.getElementById("offset").style.backgroundColor="";
-			document.getElementById("information_text").style.backgroundColor="Yellow";
+			document.getElementById("information_text").style.backgroundColor="#ffe740";
 			
 			   
 			var findtherow = "tr"+validIndex ;
@@ -312,7 +316,7 @@ function storeInstruction(){
 			arrowcache = "<svg width = 100% height=100%><path d='"+path+"' stroke='red' stroke-width='1.25' fill='none'/>";
 			document.getElementById("drawingSpace").innerHTML = arrowcache+"</svg>";
 
-			document.getElementById(findtherow).style.backgroundColor ="yellow";	
+			document.getElementById(findtherow).style.backgroundColor ="#ffe740";	
 			
 		
 
@@ -334,11 +338,11 @@ function storeInstruction(){
 		}
 	}
 	else if (step_store==4){
-		document.getElementById("information_text").style.backgroundColor="yellow";
+		document.getElementById("information_text").style.backgroundColor="#ffe740";
 		if (store_cache_found){	
 			if (writeThroughBack=="Write Through"){
 					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y la caché se actualizan";
-					document.getElementById(("tr"+validIndex)).style.backgroundColor ="#2222FF";	
+					document.getElementById(("tr"+validIndex)).style.backgroundColor ="#4682b4";	
 					listOfInstructionsTF.push(1);
 				}
 			else {
@@ -347,8 +351,8 @@ function storeInstruction(){
                 listOfInstructionsTF.push(1);
 				document.getElementById("tableSpace").innerHTML = loadTable();
 				resetColouring();
-				document.getElementById(("tr"+validIndex)).style.backgroundColor="blue";
-				document.getElementById(("dirtybit"+validIndex)).style.backgroundColor="yellow";
+				document.getElementById(("tr"+validIndex)).style.backgroundColor="#4682b4";
+				document.getElementById(("dirtybit"+validIndex)).style.backgroundColor="#ffe740";
 			}	
 		}
 		else{
@@ -363,8 +367,8 @@ function storeInstruction(){
 				document.getElementById("tableSpace").innerHTML = loadTable();
 				resetColouring();
 				document.getElementById("index").style.backgroundColor ="";
-				document.getElementById("tag").style.backgroundColor ="blue";
-				document.getElementById(("tr"+validIndex)).style.backgroundColor ="blue";	
+				document.getElementById("tag").style.backgroundColor ="#4682b4";
+				document.getElementById(("tr"+validIndex)).style.backgroundColor ="#4682b4";	
 			
 			}
 			else{
@@ -372,7 +376,7 @@ function storeInstruction(){
 
 			}
 			//Show affected memory block
-			document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
+			document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#4682b4";
 			document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true)
 				
 			

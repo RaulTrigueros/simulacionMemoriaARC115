@@ -126,9 +126,10 @@ table tr td{
   .information {border:0px; display:inline-block; }
 
 }
-.information_text{text-align:center; width:100%; height:100px; overflow:auto;}
+.information_text{text-align:left; width:100%; height:100%; overflow:auto;}
 
 .hitmiss{
+	background-color: #ffe756;
 	margin-top:5px;
 	width:100%;
 	overflow : auto;

@@ -26,13 +26,16 @@ var LRUIndex=0;
 var cacheReplacementPolicy ="FIFO";
 
 function loadConfiguration()
-{
-	offsetBit = parseInt(document.getElementById('offsetsize').value);
-    offset = Math.pow(2,offsetBit);    
-	cache = parseInt(document.getElementById('cachesize').value)/ offset;
+{ 
+	/*offsetBit = parseInt(document.getElementById('offsetsize').value);
+	offset = Math.pow(2,offsetBit);*/
+	
+		offset = parseInt(document.getElementById('offsetsize').value);
+		offsetBit = Math.log2(offset);
+		cache = parseInt(document.getElementById('cachesize').value)/ offset;
 		memory = parseInt(document.getElementById('memorysize').value);
 
-	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) == false) { alert ("Caché, Memoria y palabra deben estar en potencia de dos");}
+	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) == false) { alert ("Caché, Memoria y bloque deben estar en potencia de dos");}
 	else
 	{
 		cacheBit = logtwo(cache);
@@ -51,9 +54,9 @@ function loadConfiguration()
 			setmemorytable();
 			setfirsttable();
 			document.getElementById('submitConfig').disabled = true;
-            document.getElementById("information_text").innerHTML=" Palabra = " + offsetBit+ " bits"+
-                "<br> Longitud de instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Bloque = "+memoryBit +" bits - " +offsetBit+" bits = "+ (memoryBit-offsetBit)+ " bits"+
+			document.getElementById("information_text").innerHTML=" Longitud de la direccion de Memoria principal = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+				"<br><br> Palabra = log<sub>2</sub>(" + offset+ ") = "+offsetBit +" bits"+
+                "<br><br> Etiqueta = Bloque = "+memoryBit +" bits - " +offsetBit+" bits = "+ (memoryBit-offsetBit)+ " bits"+
                 "<br><br> Por favor envíe la instrucción.";
 		}
 		else
@@ -89,9 +92,9 @@ function instructionLoadExecuteSteps()
 	else if (step==1){	
 		window.scroll(0,0);
 		document.getElementById("information_text").innerHTML ="El índice solicitado se buscará en toda la caché";
-		document.getElementById("tag").style.backgroundColor ="yellow";
+		document.getElementById("tag").style.backgroundColor ="#ffe750";
 		document.getElementById("offset").style.backgroundColor="";
-		document.getElementById("information_text").style.backgroundColor="Yellow";
+		document.getElementById("information_text").style.backgroundColor="#ffe750";
 		var indexXY = document.getElementById("tag").getBoundingClientRect();
 		var boxXY = document.getElementById("drawingSpace").getBoundingClientRect();
 		var topBoundAddressEvaluated = document.getElementById("addressevaluated").getBoundingClientRect().top;
@@ -159,14 +162,14 @@ function instructionLoadExecuteSteps()
 				document.getElementById("information_text").innerHTML ="La memoria caché reemplaza el bloque anterior. Como el bit sucio es 1, la memoria se actualizará.";
 				var old_binary = validTagArray[LRUIndex]+""+document.getElementById("index").value;
 				var old_block = parseInt(old_binary,2);		
-				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#2222FF";
+				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#4682b4";
 				document.getElementById(("memoryRow"+old_block)).scrollIntoView(true);
 				validDirtyBitArray[LRUIndex]=0;
 				document.getElementById("drawingSpace").innerHTML = "";
 				resetColouring();
-				document.getElementById(("tag"+LRUIndex)).style.backgroundColor="#2222FF";
-				document.getElementById(("valid"+LRUIndex)).style.backgroundColor="#2222FF";				
-				document.getElementById(("tr"+LRUIndex)).style.backgroundColor="#2222FF";
+				document.getElementById(("tag"+LRUIndex)).style.backgroundColor="#4682b4";
+				document.getElementById(("valid"+LRUIndex)).style.backgroundColor="#4682b4";				
+				document.getElementById(("tr"+LRUIndex)).style.backgroundColor="#4682b4";
 				
 		}
 		
@@ -179,7 +182,7 @@ function instructionLoadExecuteSteps()
 		if (indexOfTag== -1)
 		{
 			document.getElementById("information_text").innerHTML ="El nuevo dato de la caché es importado a la caché.";
-			document.getElementById("information_text").style.backgroundColor="#FFcc55";			
+			document.getElementById("information_text").style.backgroundColor="#4682b4";			
 			validBitArray[LRUIndex]=1;
 			validTagArray[LRUIndex]=document.getElementById("tag").value ;
 			var stringDataArray = "Bloque "+block+" Palabra 0 - "+ offsetrange ;
@@ -188,7 +191,7 @@ function instructionLoadExecuteSteps()
 			document.getElementById("tableSpace").innerHTML = loadTable();
 
 			resetColouring();
-			document.getElementById(("tr"+LRUIndex)).style.backgroundColor ="blue";
+			document.getElementById(("tr"+LRUIndex)).style.backgroundColor ="#4682b4";
 			
 		}
 		else{
@@ -196,9 +199,9 @@ function instructionLoadExecuteSteps()
 			document.getElementById("information_text").style.backgroundColor="#55F055";
 		}
 		document.getElementById("drawingSpace").innerHTML = "";
-		document.getElementById("tag").style.backgroundColor ="blue";
+		document.getElementById("tag").style.backgroundColor ="#4682b4";
 		var blockDec = parseInt(block,16);
-		document.getElementById(("memoryRow"+blockDec)).style.backgroundColor="blue";
+		document.getElementById(("memoryRow"+blockDec)).style.backgroundColor="#4682b4";
 		document.getElementById(("memoryRow"+blockDec)).scrollIntoView(true);
 		
 	
@@ -264,9 +267,9 @@ function storeInstruction(){
 	else if (step_store==2){
 		window.scroll(0,0);
 		document.getElementById("information_text").innerHTML ="La búsqueda se realiza para determinar si la dirección solicitada está disponible en la tabla de caché.";
-		document.getElementById("tag").style.backgroundColor ="yellow";
+		document.getElementById("tag").style.backgroundColor ="#ffe750";
 		document.getElementById("offset").style.backgroundColor="";
-		document.getElementById("information_text").style.backgroundColor="Yellow";
+		document.getElementById("information_text").style.backgroundColor="#ffe750";
 		var indexXY = document.getElementById("tag").getBoundingClientRect();
 		var boxXY = document.getElementById("drawingSpace").getBoundingClientRect();
 		var topBoundAddressEvaluated = document.getElementById("addressevaluated").getBoundingClientRect().top;
@@ -300,11 +303,11 @@ function storeInstruction(){
 		}
 	}
 	else if (step_store==4){
-		document.getElementById("information_text").style.backgroundColor="yellow";
+		document.getElementById("information_text").style.backgroundColor="#ffe750";
 		if (store_cache_found){
 			if (writeThroughBack=="Write Through"){
 					document.getElementById("information_text").innerHTML ="El bloque de memoria principal resaltado y la caché se actualizan";
-					document.getElementById(("tr"+indexOfTag)).style.backgroundColor ="#2222FF";	
+					document.getElementById(("tr"+indexOfTag)).style.backgroundColor ="#4682b4";	
 					listOfInstructionsTF.push(1);
 				}
 			else{
@@ -313,8 +316,8 @@ function storeInstruction(){
                 listOfInstructionsTF.push(1);
 				document.getElementById("tableSpace").innerHTML = loadTable();
 				resetColouring();
-				document.getElementById(("tr"+indexOfTag)).style.backgroundColor="blue";
-				document.getElementById(("dirtybit"+indexOfTag)).style.backgroundColor="yellow";
+				document.getElementById(("tr"+indexOfTag)).style.backgroundColor="#4682b4";
+				document.getElementById(("dirtybit"+indexOfTag)).style.backgroundColor="#ffe750";
 			}
 			
 		}
@@ -336,7 +339,7 @@ function storeInstruction(){
 				document.getElementById("tableSpace").innerHTML = loadTable();
 
 				resetColouring();
-				document.getElementById(("tr"+LRUIndex)).style.backgroundColor ="blue";
+				document.getElementById(("tr"+LRUIndex)).style.backgroundColor ="#4682b4";
 
 			}
 			else{
@@ -344,7 +347,7 @@ function storeInstruction(){
 
 			}
 			//Show affected memory block
-			document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
+			document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#4682b4";
 			document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true)
 			
 
