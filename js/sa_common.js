@@ -55,8 +55,8 @@ function loadTableSetAssociative(){
 	{
 		rendertableText[table]="<table class=drawtable id=cachetable"+table+">"+
 								"<tr>"+
-									"<td> Bloque </td>"+
-									"<td> Valid </td>"+
+									"<td> Línea </td>"+
+									"<td> Valido </td>"+
 									"<td> Etiqueta </td> "+
 									"<td> Dato (Hex) </td>"+
 									"<td> Dirty Bit </td>"+

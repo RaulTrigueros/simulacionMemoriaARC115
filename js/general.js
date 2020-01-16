@@ -64,7 +64,7 @@ function setFirstTableGeneric(tagBit, offsetBit){
 function loadTable(){
 	var whattowrite="<table class=drawtable id=cachetable>"+
 						"<tr>"+
-							"<td  id=marker-1> bloque</td>"+
+							"<td  id=marker-1> Línea</td>"+
 							"<td> Válido </td>"+
 							"<td> Etiqueta </td>"+
 							"<td> Dato (Hex) </td>"+
@@ -177,7 +177,7 @@ function instructionBreakdownProcess(type)
 ///////////////////PRINT CONFIGURATION///////////////////////////////
 function printConfiguration()
 {
-    return(" palabra = " + offsetBit+ " bits"+
+    return(" Palabra = " + offsetBit+ " bits"+
                 "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset)+"/"+ offset+") = "+ cacheBit + " bits"+
                 "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
                 "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
@@ -186,7 +186,7 @@ function printConfiguration()
 }
 function printConfigurationSA2()
 {
-    return(" palabra = " + offsetBit+ " bits"+
+    return(" Palabra = " + offsetBit+ " bits"+
                 "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset*2)+"/"+ offset+"/2) = "+ cacheBit + " bits"+
                 "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
                 "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
@@ -195,7 +195,7 @@ function printConfigurationSA2()
 }
 function printConfigurationSA4()
 {
-    return(" palabra = " + offsetBit+ " bits"+
+    return(" Palabra = " + offsetBit+ " bits"+
                 "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset*4)+"/"+ offset+"/4) = "+ cacheBit + " bits"+
                 "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
                 "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
@@ -204,7 +204,7 @@ function printConfigurationSA4()
 }
 function printConfigurationVM()
 {
-    return(" palabra = " + offsetBit+ " bits"+
+    return(" Palabra = " + offsetBit+ " bits"+
                 "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
                 "<br> Filas de página física = "+physicalpage + " / 2^ " + offsetBit +" = "+physicalMemoryRows  + " rows"+
                 "<br> Filas de tabla de página = "+memory+ " / 2^" + offsetBit +" = "+ zmemory + " rows"+                
@@ -328,7 +328,7 @@ function printListOfPrevInsLS(arr_ListofInstructions, arr_ListofInstructionsTF, 
                     cacheResult="Fallo";
                 }
             else{
-                cacheResult="ADJUSTMENT";
+                cacheResult="Acierto";
             }
 			listofPrevIns +="<li> "+ arr_ListofInstructionsLS[p]+ " "+ arr_ListofInstructions[p].toUpperCase()+" ["+cacheResult+"] </li>"; 
 		}

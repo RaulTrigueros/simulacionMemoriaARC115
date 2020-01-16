@@ -112,7 +112,7 @@ function instructionLoadExecuteSteps()
 		if (indexOfTag== -1)
 		{
 	
-			document.getElementById("information_text").innerHTML ="Ningún elemento en la caché contiene "+document.getElementById("tag").value+" como valor, por lo tanto, se obtuvo un fallo en la caché.";
+			document.getElementById("information_text").innerHTML ="Ningún elemento en la caché contiene "+document.getElementById("tag").value+" como valor, por lo tanto, se obtuvo un fallo de caché.";
 			document.getElementById("information_text").style.backgroundColor="#F09999";
 			if (validBitArray[indexOfTag]==1){ step=100;}
 			if (cacheReplacementPolicy!="Random")
@@ -182,7 +182,7 @@ function instructionLoadExecuteSteps()
 			document.getElementById("information_text").style.backgroundColor="#FFcc55";			
 			validBitArray[LRUIndex]=1;
 			validTagArray[LRUIndex]=document.getElementById("tag").value ;
-			var stringDataArray = "Block "+block+" Word 0 - "+ offsetrange ;
+			var stringDataArray = "Bloque "+block+" Palabra 0 - "+ offsetrange ;
 			validDataArray[LRUIndex]= stringDataArray.toUpperCase();
 
 			document.getElementById("tableSpace").innerHTML = loadTable();
@@ -255,10 +255,10 @@ function storeInstruction(){
 
 
 		if (writeThroughBack=="Write Through"){
-			document.getElementById("information_text").innerHTML ="Se aprueba la política de escritura directa. La memoria y la caché se actualizarán al mismo tiempo.";
+			document.getElementById("information_text").innerHTML ="Se aprueba la política de Escritura Inmediata. La memoria principal y la caché se actualizarán al mismo tiempo.";
 		}
 		else{
-			document.getElementById("information_text").innerHTML ="Se adopta la política de reescritura. La caché se actualizará con bit sucio.";
+			document.getElementById("information_text").innerHTML ="Se adopta la política de Post-escritura. La caché se actualizará con Bit Sucio.";
 		}
 	}
 	else if (step_store==2){
@@ -303,12 +303,12 @@ function storeInstruction(){
 		document.getElementById("information_text").style.backgroundColor="yellow";
 		if (store_cache_found){
 			if (writeThroughBack=="Write Through"){
-					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y la caché se actualizan";
+					document.getElementById("information_text").innerHTML ="El bloque de memoria principal resaltado y la caché se actualizan";
 					document.getElementById(("tr"+indexOfTag)).style.backgroundColor ="#2222FF";	
 					listOfInstructionsTF.push(1);
 				}
 			else{
-				document.getElementById("information_text").innerHTML ="El caché resaltado se actualiza con bit sucio = 1";
+				document.getElementById("information_text").innerHTML ="En la tabla de caché la sección resaltada con amarillo se actualiza con Bit Sucio = 1";
 				validDirtyBitArray[indexOfTag]=1;
                 listOfInstructionsTF.push(1);
 				document.getElementById("tableSpace").innerHTML = loadTable();
@@ -327,7 +327,7 @@ function storeInstruction(){
 					LRUIndex = LRU.shift();
 					LRU.push(LRUIndex);
 				}
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza en función de la Política de asignación al escribir.";
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Los datos se cargan y el contenido se actualiza en función de la política de Escritura con Ubicación (asignación al escribir).";
 				validBitArray[LRUIndex]=1;
 				validTagArray[LRUIndex]=document.getElementById("tag").value ;
 				var stringDataArray = "Bloque "+block+" Palabra 0 - "+ offsetrange ;
@@ -340,7 +340,7 @@ function storeInstruction(){
 
 			}
 			else{
-				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Solo el bloque de memoria se actualiza según la Política de escritura.";					
+				document.getElementById("information_text").innerHTML ="La memoria caché no contiene la etiqueta solicitada. Solo el bloque de memoria se actualiza según la política de Escritura sin Ubicación.";					
 
 			}
 			//Show affected memory block

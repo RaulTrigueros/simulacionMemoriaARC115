@@ -54,7 +54,7 @@
 			  <li><a href="dmc.html">Directa</a></li>
 			  <li><a href="fa.html">Completamente Asociativa</a></li>
 			  <li><a href="sa2.html">Asociativa por Conjuntos: 2-vías</a></li>
-			  <li><a href="sa4.html">Asociativa Conjuntos: 4-vías</a></li>
+			  <li><a href="sa4.html">Asociativa por Conjuntos: 4-vías</a></li>
 			 <!-- <li><a href="analysis.html">Análisis de Caché</a></li>-->
 			</ul>
 		  </div>
@@ -70,7 +70,7 @@
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="LRU"> LRU </input></label>
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Aleatorio </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
-				<!-----Escribir A Través De / Escribir Atrás ---><h4>Políticas de Actualizaci&oacuten </h4>
+				<!-----Escribir A Través De / Escribir Atrás - --><h4>Políticas de Actualizaci&oacuten </h4>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Post-Escritura </input></label>	
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
@@ -125,12 +125,12 @@
 	<!------------------------------ LADO DERECHO -------------------------------------------->
 	
 	<div class="col-sm-12 col-md-9">
-	<!------------ HEADER ----------------------------------->
+	<!------------ HEADER --------------------------------- -->
 	<div class="col-sm-12 col-md-10 header">
 	<h3><img src="img/logoarc115.png" alt="logo de simulador ARC115" ><br>
 						<font face="titleFont">Asociativa por Conjuntos: 4-vías </font></h3>	
 	</div>
-	<!----------------------- ANÁLISIS DE INSTRUCCIÓN ----------------------------------->
+	<!----------------------- ANÁLISIS DE INSTRUCCIÓN --------------------------------- -->
 	<div id="addressevaluated" class="col-sm-12 col-md-5 addressevaluated">
 		<h3><i class="fa fa-sort" aria-hidden="true"></i> Desglose de instrucción </h3>
 		<table  id=caption class=caption>
@@ -148,7 +148,7 @@
 	</div>
 	<!--------------------DRAWING LAYER -------------------------------->
 		<div id="drawingSpace" class="drawingSpace"></div>
-	<!------------------------ BLOQUE DE MEMORIA ------------------------------->
+	<!------------------------ BLOQUE DE MEMORIA ----------------------------- -->
 		<div id="memorydiv" class="col-sm-12 col-md-7 memorydiv">
 			<h3><i class="fa fa-th-large" aria-hidden="true"></i> Bloque de Memoria Principal </h3>
 				<div id="memoryblocks" class="memoryblocks"></div>
@@ -160,16 +160,18 @@
 
 			<div id="tableSpace" class="col-sm-12 col-md-12 tableSpace table-responsive table table-striped w-auto">
 				<div id="draw" class="sa4table">
-				<table class=drawtable id=cachetable><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
+
+				<table class=drawtable id=cachetable><tr><td>Linea </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
 				</div>
 				<div id="drawTwo" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Linea</td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
 				</div>
 				<div id="drawThree" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Linea </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
 				</div>
 				<div id="drawFour" class="sa4table">
-				<table class=drawtable id=cachetable2><tr><td>Bloque </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
+				<table class=drawtable id=cachetable2><tr><td>Linea </td><td> Valid </td><td> Etiqueta </td> <td> Datos (Hex) </td> <td> Dirty Bit </td></tr></table>
+
 				</div>
 			</div>
 		</div>
