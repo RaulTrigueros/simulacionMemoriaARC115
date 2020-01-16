@@ -131,16 +131,16 @@ function step1(){
     window.scroll(0,0);
     document.getElementById("information_text").innerHTML ="El índice solicitado se buscará en la memoria caché como se resalta en amarillo";
     document.getElementById("tag").style.backgroundColor ="";
-    document.getElementById("index").style.backgroundColor="Yellow";
+    document.getElementById("index").style.backgroundColor="#ffe745";
     document.getElementById("offset").style.backgroundColor="";
-    document.getElementById("information_text").style.backgroundColor="Yellow";
+    document.getElementById("information_text").style.backgroundColor="#ffe745";
 
     var findtherow = "tr"+phpNaming[0]+validindex;
     v2 = document.getElementById(findtherow).getBoundingClientRect().top - boxXY.top+10;
     var path = "M "+indexMid+","+topBoundAddressEvaluated+" V "+topBoundCacheTable+" H 10 V "+ v2 + "H 40";
     arrowcache = "<svg width = 100% height=100%><path d='"+path+"' stroke='red' stroke-width='1.25' fill='none'/>";
     document.getElementById("drawingSpace").innerHTML = arrowcache+"</svg>";
-    highlight("tr","yellow");
+    highlight("tr","#ffe745");
 }
 
 function LRUController(){

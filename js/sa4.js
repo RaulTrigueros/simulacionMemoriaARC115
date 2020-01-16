@@ -96,7 +96,7 @@ function instructionLoadExecuteSteps()
 				var dataXY = document.getElementById(("tag"+phpNaming[comp]+validindex)).getBoundingClientRect().right - boxXY.left - 30;
 				if (dataXY >= (validXY+50)){dataXY = validXY+50;}
 				var pathDataVerticalLine = "M "+dataXY+","+v2+" V "+min200;
-				arrowcache += "<path d='"+pathDataVerticalLine+"' stroke='blue' stroke-width='1.25' fill='none'/>";
+				arrowcache += "<path d='"+pathDataVerticalLine+"' stroke='#4682b4' stroke-width='1.25' fill='none'/>";
                 tagpathstopX[comp] = dataXY;
                 
                 
@@ -275,14 +275,14 @@ function instructionLoadExecuteSteps()
 					var old_binary = validTagArray[validindex][LRUIndex]+"";	
 				}
 				var old_block = parseInt(old_binary,2);		
-				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#2222FF";
+				document.getElementById(("memoryRow"+old_block)).style.backgroundColor="#4682b4";
 				document.getElementById(("memoryRow"+old_block)).scrollIntoView(true);
 				validDirtyBitArray[validindex][LRUIndex]=0;
 
 				resetColouring();
-				document.getElementById(("tag"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#2222FF";
-				document.getElementById(("valid"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#2222FF";				
-				document.getElementById(("tr"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#2222FF";
+				document.getElementById(("tag"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#4682b4";
+				document.getElementById(("valid"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#4682b4";				
+				document.getElementById(("tr"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#4682b4";
 				
 		}
 		
@@ -303,9 +303,9 @@ function instructionLoadExecuteSteps()
 		}
 		//Highlight Updated Row
 		var findtherow = "tr"+phpNaming[indexHighlight]+validindex;
-		document.getElementById(findtherow).style.backgroundColor ="blue";	
-		document.getElementById("information_text").style.backgroundColor="blue";	
-		document.getElementById(("dirtybit"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#yellow";
+		document.getElementById(findtherow).style.backgroundColor ="#4682b4";	
+		document.getElementById("information_text").style.backgroundColor="#4682b4";	
+		document.getElementById(("dirtybit"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="##ffe745";
 		step=5;
 	}
 	else if (step==6){
@@ -325,7 +325,7 @@ function instructionLoadExecuteSteps()
 		loadTableSetAssociative();
 
 		document.getElementById("index").style.backgroundColor ="";
-		document.getElementById("tag").style.backgroundColor ="blue";
+		document.getElementById("tag").style.backgroundColor ="#4682b4";
 
 	
 
@@ -429,13 +429,13 @@ function storeInstruction(){
 		}
 	}
 	else if (step_store==4){
-		document.getElementById("information_text").style.backgroundColor="yellow";
+		document.getElementById("information_text").style.backgroundColor="#ffe745";
 		if (store_cache_found){
 			if (writeThroughBack=="Write Through"){
 
 					document.getElementById("information_text").innerHTML ="El bloque de memoria resaltado y la caché se actualizan.";
 
-					document.getElementById(("tr"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor ="#2222FF";	
+					document.getElementById(("tr"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor ="#4682b4";	
 					listOfInstructionsTF.push(1);
 				}
 			else{ // Write Back with Cache Hit
@@ -444,8 +444,8 @@ function storeInstruction(){
                 listOfInstructionsTF.push(1);
 				loadTableSetAssociative();
 				resetColouring();
-				document.getElementById(("tr"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor="blue";
-				document.getElementById(("dirtybit"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor="yellow";
+				document.getElementById(("tr"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor="#4682b4";
+				document.getElementById(("dirtybit"+phpNaming[whichTableContainsValidTag]+validindex)).style.backgroundColor="#ffe745";
 				document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="";
 			}
 		}
@@ -465,7 +465,7 @@ function storeInstruction(){
 				var stringDataArray = "B. "+block+" P. 0 - "+ offsetrange ;
 				validDataArray[validindex][LRUIndex]= stringDataArray.toUpperCase();
 				loadTableSetAssociative();
-				document.getElementById(("tr"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="blue";
+				document.getElementById(("tr"+phpNaming[LRUIndex]+validindex)).style.backgroundColor="#4682b4";
 			}
 			else{
 				document.getElementById("information_text").innerHTML ="La caché no contiene la etiqueta solicitada. Sólo el bloque de memoria se actualiza basado en la política de Escritura sin Ubicación'.";					
@@ -473,7 +473,7 @@ function storeInstruction(){
 			}
 
 			//Show affected memory block
-			document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#2222FF";
+			document.getElementById(("memoryRow"+parseInt(block,16))).style.backgroundColor="#4682b4";
 			document.getElementById(("memoryRow"+parseInt(block,16))).scrollIntoView(true)
 				
 

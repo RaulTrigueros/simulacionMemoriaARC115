@@ -195,11 +195,11 @@ function printConfigurationSA2()
 }
 function printConfigurationSA4()
 {
-    return(" Palabra = " + offsetBit+ " bits"+
-                "<br> Bits de bloque = log<sub>2</sub>("+(cache*offset*4)+"/"+ offset+"/4) = "+ cacheBit + " bits"+
-                "<br> Longitud de la instrucción = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
-                "<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
-                "<br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
+    return(" Longitud de la direccion de Memoria principal = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
+				"<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
+				"<br><br> Conjunto = log<sub>2</sub>("+(cache*offset*4)+"/"+ offset+"/4) = "+ cacheBit + " bits"+
+				"<br><br> Palabra = log<sub>2</sub>(" + offset+ ") = "+ offsetBit +" bits"+
+				"<br><br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
                 "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationVM()

@@ -61,16 +61,18 @@
 		</div>
 	</nav>
 
-
+<!-----------------------------------------------INICIO SIDEBAR--------------------------------------------->
     <div class="col-sm-12 col-md-3" id="sidebar">
 		<div class="col-sm-6 col-md-2 configurationTab">
 			<div class="settings_text"><h4>Políticas de Reemplazo</h4>
-				<!--- Replacement Policy -->
+				<!--- POLITICAS DE REMPLAZO -->
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()" value="FIFO" checked> FIFO </input></label>	
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="LRU"> LRU </input></label>
 				<label class="col-xs-4 col-sm-4 reppol"><input type="radio" id="ReplacementPolicy"  name="ReplacementPolicy" onchange="adjustLRU()"  value="Random"> Aleatorio </input></label>
 				<br><hr style="margin-top:0px; margin-bottom:2px; border:0.5px solid #999;">
-				<!-----Escribir A Través De / Escribir Atrás - --><h4>Políticas de Actualizaci&oacuten </h4>
+				
+				<!-----POLITICAS DE ACTUALIZACION- -->
+				<h4>Políticas de Actualizaci&oacuten </h4>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange="" value="Write Back" checked> Post-Escritura </input></label>	
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteThroughBack"  name="WriteThroughBack" onchange=""  value="Write Through"> Escritura Inmediata </input></label>
 				<label class="col-xs-6 col-sm-6 reppol"><input type="radio" id="WriteAllocateAround"  name="WriteAllocateAround"  value="Write Allocate" checked> Escritura con Ubicaci&oacuten </input></label>	
@@ -78,9 +80,10 @@
 
 				<br><hr style="margin-top:0px; margin-bottom:10px; border:0.5px solid #999;">           
 			</div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de caché <font size=-4><br>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=16 /></div>					
-			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=2048 /> </div>
-			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=2 /></div>
+			<!----------------INGRESO DE DATOS-------------------->
+			<div><label class="col-xs-8 col-sm-8 labels" name="Cache Size"> Tamaño de caché <font size=-4><br>(potencia de 2)</font> </label><input class="col-xs-4 col-sm-4" type="text" name="cachesize" id="cachesize" value=32 /></div>					
+			<div><label class="col-xs-8 col-sm-8 labels" name="Memory Size"> Tamaño de memoria Principal <font size=-4>(potencia de 2)</font></label><input class="col-xs-4 col-sm-4" type="text" name="memorysize" id="memorysize"  value=1024 /> </div>
+			<div><label class="col-xs-8 col-sm-8 labels" name="Offset Size"> Bits de Palabra <font size=-4></font></label> <input class="col-xs-4 col-sm-4" type="text" name="offsetsize" id="offsetsize"  value=4 /></div>
 			<div class ="submit">
 				<button class="col-xs-6 col-sm-6 onsubmit" onclick="resetConfiguration()">Reiniciar <i class="fa fa-undo"aria-hidden="true"></i></button>
 				<button class="col-xs-6 col-sm-6 onsubmit" id="submitConfig" onclick="loadConfiguration()">Enviar <i class="fa fa-external-link-square" aria-hidden="true"></i></button>				
@@ -122,7 +125,7 @@
 				<label  class="col-xs-12 col-sm-12 "id="listOfInstructionsLabel"> </label> 
 		</div>
     </div>
-	<!------------------------------ LADO DERECHO -------------------------------------------->
+	<!------------------------------ FIN SIDEBAR-------------------------------------------->
 	
 	<div class="col-sm-12 col-md-9">
 	<!------------ HEADER --------------------------------- -->
