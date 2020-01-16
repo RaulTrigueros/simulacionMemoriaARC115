@@ -29,18 +29,16 @@ function loadConfiguration()
 	offset = Math.pow(2,offsetBit);*/
 	
 	offset = parseInt(document.getElementById('offsetsize').value);
-	offsetBit = Math.log2(offset);
-
 	cache = parseInt(document.getElementById('cachesize').value)/ offset; 
 	memory = parseInt(document.getElementById('memorysize').value);
 
 	
-	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) && checkPowerOfTwo(offset) == false) { alert ("Caché, Memoria y bloque deben estar en potencia de dos");}
+	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory) && checkPowerOfTwo(offset))  == false) { alert ("Caché, Memoria y bloque deben estar en potencia de dos");}
 	else
 	{
 		cacheBit = logtwo(cache);
 		memoryBit = logtwo(memory);
-
+		offsetBit = Math.log2(offset);
         //Condicion  de validacion de configuracion de cache
 		if ((cacheBit>=0) && (memoryBit>=0) && (offsetBit>=0) && (memoryBit>(offsetBit+cacheBit)))
 		{

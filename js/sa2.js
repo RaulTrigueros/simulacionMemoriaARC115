@@ -14,7 +14,7 @@ function loadConfiguration()
 {
 	loadCommonConfiguration();
 
-	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) == false) { alert ("El tamaño de caché, tamaño de memoria y la compensación deben estar en potencia de dos");}
+	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory) && checkPowerOfTwo(offset)) == false) { alert ("El tamaño de caché, tamaño de memoria y la compensación deben estar en potencia de dos");}
 	else
 	{
 		cacheBit = logtwo(cache);

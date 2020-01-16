@@ -1,15 +1,39 @@
 ///////////////////////////////////////UTILITIES/////////////////////////////
-function checkPowerOfTwo(arbitaryNumber)
+/*function checkPowerOfTwo(arbitaryNumber)
 {
 	if (Math.pow(2,(Math.log(arbitaryNumber)/Math.log(2)))==arbitaryNumber)
 	{
 		return true;
-	}
+	} 
 	else
 	{
 		return false;
 	} 
 }
+*/
+function checkPowerOfTwo(arbitaryNumber)
+{
+	if (numberInteger(Math.log2(arbitaryNumber)) == true)
+	{
+		return true;
+	} 
+	else
+	{
+		return false;
+	} 
+}
+
+
+function numberInteger(numero)
+{
+        if (numero % 1 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+}
+
+
 function logtwo(arbitaryNumber)
 {
 	return (Math.log(arbitaryNumber)/ Math.log(2));

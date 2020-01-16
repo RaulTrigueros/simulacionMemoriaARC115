@@ -35,7 +35,7 @@ function loadConfiguration()
 		cache = parseInt(document.getElementById('cachesize').value)/ offset;
 		memory = parseInt(document.getElementById('memorysize').value);
 
-	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory)) == false) { alert ("Caché, Memoria y bloque deben estar en potencia de dos");}
+	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory) && checkPowerOfTwo(offset)) == false) { alert ("Caché, Memoria y bloque deben estar en potencia de dos");}
 	else
 	{
 		cacheBit = logtwo(cache);
