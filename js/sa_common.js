@@ -59,7 +59,7 @@ function loadTableSetAssociative(){
 	{
 		rendertableText[table]="<table class=drawtable id=cachetable"+table+">"+
 								"<tr>"+
-									"<td> Línea </td>"+
+									"<td> Conjunto </td>"+
 									"<td> Valido </td>"+
 									"<td> Etiqueta </td> "+
 									"<td> Dato (Hex) </td>"+

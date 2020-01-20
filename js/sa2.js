@@ -42,7 +42,7 @@ function loadConfiguration()
             document.getElementById("information_text").innerHTML=printConfigurationSA2();
 		}
 		else{
-			alert("La configuración no es válida. Inténtalo de nuevo. \n El tamaño de la memoria debe ser mayor que el total de caché y el tamaño de desplazamiento. El tamaño del caché debe ser mayor o igual a 2 ^ (2 * OffsetBits).")
+			alert("La configuración no es válida. Inténtalo de nuevo. \n El tamaño de la memoria debe ser mayor que el total de caché y el tamaño de desplazamiento. El tamaño del caché debe ser mayor o igual a 2 ^ (2 * "+offsetBit+").")
 		}
 	}
 	

@@ -15,7 +15,7 @@ function loadConfiguration()
 {
 	loadCommonConfiguration();
 
-	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory) && checkPowerOfTwo(offset)) == false) { alert ("Caché, La Memoria y el bloque deben estar en potencia de dos");}
+	if ((checkPowerOfTwo(cache) && checkPowerOfTwo(memory) && checkPowerOfTwo(offset)) == false) { alert ("Caché, La Memoria y el Bloque deben estar en potencia de dos");}
 	else
 	{
 		cacheBit = logtwo(cache);
@@ -44,7 +44,7 @@ function loadConfiguration()
             document.getElementById("information_text").innerHTML=printConfigurationSA4();
 		}
 		else{
-			alert("La configuración no es válida. Por favor intente de nuevo. \n El tamaño de memoria debe ser mayor que el total de Caché y el tamaño de compensación. El tamaño de la caché debe ser mayor o igual que 2^(4*OffsetBits).")
+			alert("La configuración no es válida. Por favor intente de nuevo. \n El tamaño de memoria debe ser mayor que el total de Caché y el tamaño de compensación. El tamaño de la caché debe ser mayor o igual que 2^(4*"+offsetBit+").")
 		}
 	}
 	
