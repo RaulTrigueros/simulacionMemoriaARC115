@@ -25,8 +25,7 @@ var instructionType = 0;
 
 function loadConfiguration()
 { 
-	/*offsetBit = parseInt(document.getElementById('offsetsize').value);
-	offset = Math.pow(2,offsetBit);*/
+
 	
 	offset = parseInt(document.getElementById('offsetsize').value);
 	cache = parseInt(document.getElementById('cachesize').value)/ offset; 

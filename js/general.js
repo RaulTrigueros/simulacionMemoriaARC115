@@ -201,11 +201,10 @@ function instructionBreakdownProcess(type)
 ///////////////////PRINT CONFIGURATION///////////////////////////////
 function printConfiguration()
 {
-    return("Bits de direccion en cache = log<sub>2</sub>("+(cache*offset)+"/"+ offset+") = "+ cacheBit + " bits"+
+    return("Bits de direccion en cache = Linea = log<sub>2</sub>("+(cache*offset)+"/"+ offset+") = "+ cacheBit + " bits"+
 				"<br><br> Longitud de la direccion de Memoria principal = log<sub>2</sub>("+memory+") = "+memoryBit+ " bits"+
 				"<br><br> Palabra = log<sub>2</sub>(" + offset + ") = "+offsetBit +" bits"+
                 "<br><br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
-                "<br><br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
                 "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationSA2()
@@ -214,7 +213,6 @@ function printConfigurationSA2()
 				"<br><br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
 				"<br><br> Conjunto = log<sub>2</sub>("+(cache*offset*2)+"/"+ offset+"/2) = "+ cacheBit + " bits"+
 				"<br><br> Palabra = log<sub>2</sub>(" + offset+ ") = "+ offsetBit +" bits"+
-				"<br><br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
                 "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationSA4()
@@ -223,7 +221,6 @@ function printConfigurationSA4()
 				"<br> Etiqueta = "+ memoryBit + " bits - " + offsetBit + " bits - " + cacheBit +" bits = " +tagBit+" bits"+
 				"<br><br> Conjunto = log<sub>2</sub>("+(cache*offset*4)+"/"+ offset+"/4) = "+ cacheBit + " bits"+
 				"<br><br> Palabra = log<sub>2</sub>(" + offset+ ") = "+ offsetBit +" bits"+
-				"<br><br> Bloque = "+tagBit +" bits + " +cacheBit+" bits = "+ (tagBit+cacheBit)+ " bits"+
                 "<br><br> Por favor envíe la instrucción.");
 }
 function printConfigurationVM()
